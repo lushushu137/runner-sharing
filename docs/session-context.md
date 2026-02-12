@@ -5,14 +5,15 @@
 ## 1) 当前项目目标（已落地）
 
 - 项目：`game-mvp`（React + TypeScript + Vite）
-- 已实现 MVP：
-  - 开场叙事
-  - 两个微互动
-  - 结尾场景
-  - 本地存档（localStorage）
-  - 音频（BGM + SFX）
+- 当前代码基线已经从“单一MVP玩法”升级为“叙事游戏框架原型”
+- 核心能力：
+  - StoryDirector（场景流转 + 变量）
+  - InteractionRegistry（插件式微互动）
+  - SaveRepository（版本化本地存档）
+  - TimelineEngine + AudioConductor（节奏 cue 与音频路由）
+  - DebugPanel（跳场景、变量注入、重置）
 
-## 2) 你要的核心工作流（阶段 A）
+## 2) 你要的核心流程（阶段 A）
 
 你在手机 Web Cursor 提需求 -> 我改代码并推分支 -> 自动生成预览链接 -> 你说“确认” -> 我执行合并 -> 自动生产部署。
 

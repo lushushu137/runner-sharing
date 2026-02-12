@@ -1,23 +1,40 @@
-# Project Mosa MVP (React)
+# Florence-style Narrative Framework (Prototype)
 
-Single-chapter narrative MVP inspired by emotional micro-interaction games.
+This package is no longer a one-off MVP mini-game.  
+It is now a framework-oriented prototype for building emotional, chapter-based
+interactive stories.
 
-## What this MVP includes
+## Framework goals
 
-- 2 intro story scenes
-- Micro Game A: fragment matching
-- Micro Game B: dialogue ordering
-- Ending scene
-- Skip button in both micro games
-- Local progress save (localStorage)
-- Basic audio stack:
-  - 1 looped BGM
-  - 4 SFX (click / success / fail / transition)
+1. Story-first runtime (scene graph + variables + save/restore)
+2. Plugin-style interaction system (micro-games as modules)
+3. Data-driven content format (story package validated by schema)
+4. Production-ready workflow compatibility (CI + preview + deploy)
 
-## Tech stack
+## Current architecture
 
-- React + TypeScript + Vite
-- Howler.js for audio
+```text
+src/framework/
+  content/
+    storySchema.ts          # story contract validation (zod)
+    ch01.story.ts           # sample chapter content package
+    loadStoryPackage.ts     # typed loader
+  runtime/
+    storyDirector.ts        # scene flow + variables + transitions
+    storyRuntimeController.ts
+    saveRepository.ts       # versioned localStorage persistence
+    timelineEngine.ts       # cue scheduler
+    audioConductor.ts       # BGM/SFX routing
+  interactions/
+    types.ts                # plugin contract
+    registry.ts             # plugin container
+    defaultRegistry.ts      # default plugin set
+    plugins/
+      tapSequencePlugin.tsx
+      choiceBalancePlugin.tsx
+  ui/
+    DebugPanel.tsx          # jump/variables/reset debug tools
+```
 
 ## Run locally
 
@@ -26,23 +43,15 @@ npm install
 npm run dev
 ```
 
-## Build
+## Validate
 
 ```bash
+npm run lint
 npm run build
 ```
 
-## Asset structure
+## Notes
 
-- `public/art/*` scene and character SVGs
-- `public/audio/*` generated wav files
-
-## Current scope
-
-This repository intentionally keeps scope small (5~8 minutes of gameplay) to validate:
-
-1. Narrative pacing
-2. Micro-game readability
-3. Basic art/audio pipeline
-
-Future iterations can expand into multi-chapter flow and richer interaction mechanics.
+- Audio files are generated placeholders in `public/audio/`.
+- Story content can be moved to JSON files later; runtime contract is already isolated.
+- New micro-games should be added as interaction plugins, not hardcoded in `App.tsx`.
