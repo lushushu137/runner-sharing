@@ -84,9 +84,9 @@ function countDialogueMatches(order: string[]): number {
 }
 
 function App() {
-  const savedSceneRef = useRef(readSavedSceneIndex())
+  const [savedSceneIndex, setSavedSceneIndex] = useState(readSavedSceneIndex)
   const canResumeSavedGame =
-    savedSceneRef.current > 0 && savedSceneRef.current < STORY_SCENES.length - 1
+    savedSceneIndex > 0 && savedSceneIndex < STORY_SCENES.length - 1
 
   const [sceneIndex, setSceneIndex] = useState(0)
   const [resumePromptVisible, setResumePromptVisible] = useState(canResumeSavedGame)
@@ -173,7 +173,7 @@ function App() {
     if (typeof window !== 'undefined') {
       window.localStorage.removeItem(STORAGE_KEY)
     }
-    savedSceneRef.current = 0
+    setSavedSceneIndex(0)
     resetMiniGameState()
     setResumePromptVisible(false)
     setSceneIndex(0)
@@ -182,7 +182,7 @@ function App() {
 
   function resumeFromSave(): void {
     resetMiniGameState()
-    setSceneIndex(savedSceneRef.current)
+    setSceneIndex(savedSceneIndex)
     setResumePromptVisible(false)
     playSfx('transition')
   }
@@ -511,7 +511,7 @@ function App() {
         <section className="resume-modal" role="dialog" aria-modal="true">
           <div className="resume-panel">
             <h2>Resume your last progress?</h2>
-            <p>Found saved scene: {savedSceneRef.current + 1}.</p>
+            <p>Found saved scene: {savedSceneIndex + 1}.</p>
             <div className="resume-actions">
               <button className="primary-button" onClick={resumeFromSave}>
                 Resume
