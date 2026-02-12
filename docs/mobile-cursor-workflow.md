@@ -21,6 +21,7 @@
 - `VERCEL_PROJECT_ID`
 
 这三个值可从 Vercel CLI 首次 `vercel link` 后生成的 `.vercel/project.json` 和账号页面获取。
+注意：`VERCEL_ORG_ID` 通常是 `team_xxx` 这种内部 ID，不是团队 slug 名称。
 
 ## 3) GitHub 分支保护（建议）
 
