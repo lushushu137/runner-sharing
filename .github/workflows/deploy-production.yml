@@ -5,8 +5,8 @@ on:
     branches:
       - dev
     paths:
-      - "game-mvp/**"
-      - ".github/workflows/**"
+      - 'game-mvp/**'
+      - '.github/workflows/**'
   workflow_dispatch:
 
 jobs:
@@ -49,65 +49,3 @@ jobs:
           echo "## Production 部署完成" >> "$GITHUB_STEP_SUMMARY"
           echo "" >> "$GITHUB_STEP_SUMMARY"
           echo "- URL: ${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
-
-      - name: Notify Feishu (production success)
-        if: success() && secrets.FEISHU_WEBHOOK_URL != ''
-        continue-on-error: true
-        env:
-          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
-          BRANCH_NAME: ${{ github.ref_name }}
-          SHA_VALUE: ${{ github.sha }}
-          REPO: ${{ github.repository }}
-          ACTOR: ${{ github.actor }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          PAYLOAD="$(python3 - <<'PY'
-          import json
-          import os
-
-          text = (
-              "部署通知 ✅ Production 部署成功\n"
-              f"仓库: {os.environ['REPO']}\n"
-              f"分支: {os.environ['BRANCH_NAME']}\n"
-              f"Commit: {os.environ['SHA_VALUE'][:7]}\n"
-              f"线上链接: {os.environ['DEPLOY_URL']}\n"
-              f"触发人: {os.environ['ACTOR']}\n"
-              f"日志: {os.environ['RUN_URL']}"
-          )
-          print(json.dumps({"msg_type": "text", "content": {"text": text}}, ensure_ascii=False))
-          PY
-          )"
-          curl -sS -X POST "$FEISHU_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
-            -d "$PAYLOAD"
-
-      - name: Notify Feishu (production failure)
-        if: failure() && secrets.FEISHU_WEBHOOK_URL != ''
-        continue-on-error: true
-        env:
-          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-          BRANCH_NAME: ${{ github.ref_name }}
-          SHA_VALUE: ${{ github.sha }}
-          REPO: ${{ github.repository }}
-          ACTOR: ${{ github.actor }}
-          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: |
-          PAYLOAD="$(python3 - <<'PY'
-          import json
-          import os
-
-          text = (
-              "部署通知 ❌ Production 部署失败\n"
-              f"仓库: {os.environ['REPO']}\n"
-              f"分支: {os.environ['BRANCH_NAME']}\n"
-              f"Commit: {os.environ['SHA_VALUE'][:7]}\n"
-              f"触发人: {os.environ['ACTOR']}\n"
-              f"日志: {os.environ['RUN_URL']}"
-          )
-          print(json.dumps({"msg_type": "text", "content": {"text": text}}, ensure_ascii=False))
-          PY
-          )"
-          curl -sS -X POST "$FEISHU_WEBHOOK_URL" \
-            -H "Content-Type: application/json" \
-            -d "$PAYLOAD"

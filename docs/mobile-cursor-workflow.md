@@ -19,17 +19,9 @@
 - `VERCEL_TOKEN`
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
-- `FEISHU_WEBHOOK_URL`（可选，用于部署通知）
 
 这三个值可从 Vercel CLI 首次 `vercel link` 后生成的 `.vercel/project.json` 和账号页面获取。
 注意：`VERCEL_ORG_ID` 通常是 `team_xxx` 这种内部 ID，不是团队 slug 名称。
-
-### 飞书机器人 webhook 配置（通知用）
-
-1. 在飞书群里添加“自定义机器人”。
-2. 复制机器人 webhook 地址（形如 `https://open.feishu.cn/open-apis/bot/v2/hook/xxx`）。
-3. 将这个地址写入 GitHub Secret：`FEISHU_WEBHOOK_URL`。
-4. 建议机器人安全设置使用“关键词校验”（当前工作流消息已内置关键词：`部署通知`）。
 
 ## 3) GitHub 分支保护（建议）
 
@@ -53,13 +45,11 @@
    - PR 打开/更新时触发
    - 构建并发布 Vercel Preview
    - 自动在 PR 评论区更新最新 Preview 链接
-   - 如配置 `FEISHU_WEBHOOK_URL`，会向飞书发送成功/失败通知
 
 3. `.github/workflows/deploy-production.yml`
    - `dev` 分支 push 时触发（以及手动触发）
    - 构建并发布 Vercel Production
    - 在 Actions Summary 输出最终生产 URL
-   - 如配置 `FEISHU_WEBHOOK_URL`，会向飞书发送成功/失败通知
 
 ---
 
@@ -83,7 +73,6 @@ gh pr merge <PR_NUMBER> --squash --auto
 ```
 
 说明：
-
 - 有分支保护时，命令会在 CI 通过后自动完成合并。
 - 合并后 `dev` push 会自动触发生产部署工作流。
 
@@ -94,9 +83,6 @@ gh pr merge <PR_NUMBER> --squash --auto
 - 如果 Preview 没有链接：
   - 检查 PR 的 `Deploy Preview` workflow 是否成功
   - 检查 `VERCEL_*` 三个 secrets 是否完整
-- 如果飞书没有通知：
-  - 检查 `FEISHU_WEBHOOK_URL` 是否已添加
-  - 检查飞书机器人安全策略（IP 白名单/关键词）是否阻挡了 GitHub Actions 请求
 - 如果生产部署未触发：
   - 确认合并目标分支是 `dev`
   - 检查 `Deploy Production` workflow 日志
