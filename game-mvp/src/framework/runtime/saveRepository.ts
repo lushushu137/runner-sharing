@@ -1,7 +1,11 @@
 import type { StorySnapshot } from '../types'
 
 export class SaveRepository {
-  constructor(private readonly prefix = 'florence-framework-save') {}
+  private readonly prefix: string
+
+  constructor(prefix = 'florence-framework-save') {
+    this.prefix = prefix
+  }
 
   load(storyId: string, version: number): StorySnapshot | null {
     if (typeof window === 'undefined') {

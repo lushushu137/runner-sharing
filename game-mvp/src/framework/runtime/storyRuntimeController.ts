@@ -5,6 +5,8 @@ import { TimelineEngine } from './timelineEngine'
 import type { InteractionOutcome, StoryPackage, StoryScene, StorySnapshot } from '../types'
 
 export class StoryRuntimeController {
+  private readonly story: StoryPackage
+
   private readonly saveRepository = new SaveRepository()
 
   private readonly director: StoryDirector
@@ -13,7 +15,8 @@ export class StoryRuntimeController {
 
   private readonly audioConductor: AudioConductor
 
-  constructor(private readonly story: StoryPackage) {
+  constructor(story: StoryPackage) {
+    this.story = story
     const restoredSnapshot = this.saveRepository.load(story.id, story.version)
     this.director = new StoryDirector(story, restoredSnapshot)
     this.audioConductor = new AudioConductor(story.audio)

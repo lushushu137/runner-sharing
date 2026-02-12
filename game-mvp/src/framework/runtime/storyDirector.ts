@@ -26,14 +26,14 @@ function cloneSnapshot(snapshot: StorySnapshot): StorySnapshot {
 }
 
 export class StoryDirector {
+  private readonly story: StoryPackage
+
   private readonly sceneIndexById: Map<string, number>
 
   private snapshot: StorySnapshot
 
-  constructor(
-    private readonly story: StoryPackage,
-    initialSnapshot?: StorySnapshot | null,
-  ) {
+  constructor(story: StoryPackage, initialSnapshot?: StorySnapshot | null) {
+    this.story = story
     this.sceneIndexById = new Map(
       story.scenes.map((scene, index) => [scene.id, index]),
     )
