@@ -99,15 +99,15 @@ function App() {
   )
 
   const [dialogueOrder, setDialogueOrder] = useState<string[]>(DIALOGUE_INITIAL_ORDER)
-  const [dialogueMessage, setDialogueMessage] = useState(
-    'Use the up/down buttons to make the conversation feel natural.',
-  )
   const dialogueSolvedSoundPlayedRef = useRef(false)
 
   const currentScene = STORY_SCENES[sceneIndex]
   const puzzleSolved = PUZZLE_PIECES.every((piece) => placedPieces[piece.id] === piece.id)
   const dialogueSolved = isDialogueSolved(dialogueOrder)
   const dialogueMatches = countDialogueMatches(dialogueOrder)
+  const dialogueMessage = dialogueSolved
+    ? 'The dialogue now flows. Continue when ready.'
+    : `Correct position: ${dialogueMatches}/${DIALOGUE_TARGET_ORDER.length}. Keep adjusting.`
 
   const audio = useMemo(
     () => ({
@@ -165,7 +165,6 @@ function App() {
     setPlacedPieces({})
     setPuzzleMessage('Select one fragment on the left, then tap a slot on the right.')
     setDialogueOrder([...DIALOGUE_INITIAL_ORDER])
-    setDialogueMessage('Use the up/down buttons to make the conversation feel natural.')
     dialogueSolvedSoundPlayedRef.current = false
   }
 
@@ -223,9 +222,14 @@ function App() {
 
     if (selectedPieceId === slotId) {
       playSfx('success')
-      setPlacedPieces((current) => ({ ...current, [slotId]: selectedPieceId }))
+      const nextPlacedPieces = { ...placedPieces, [slotId]: selectedPieceId }
+      setPlacedPieces(nextPlacedPieces)
       setSelectedPieceId(null)
-      setPuzzleMessage('Nice fit. Keep going.')
+      if (PUZZLE_PIECES.every((piece) => nextPlacedPieces[piece.id] === piece.id)) {
+        setPuzzleMessage('Scene complete. Continue to the next memory.')
+      } else {
+        setPuzzleMessage('Nice fit. Keep going.')
+      }
       return
     }
 
@@ -234,22 +238,26 @@ function App() {
   }
 
   function moveDialogueLine(index: number, direction: -1 | 1): void {
-    playSfx('click')
-    setDialogueOrder((current) => {
-      const nextIndex = index + direction
-      if (nextIndex < 0 || nextIndex >= current.length) {
-        return current
-      }
+    const nextIndex = index + direction
+    if (nextIndex < 0 || nextIndex >= dialogueOrder.length) {
+      return
+    }
 
-      const next = [...current]
-      const line = next[index]
-      if (!line) {
-        return current
-      }
-      next.splice(index, 1)
-      next.splice(nextIndex, 0, line)
-      return next
-    })
+    playSfx('click')
+    const next = [...dialogueOrder]
+    const line = next[index]
+    if (!line) {
+      return
+    }
+
+    next.splice(index, 1)
+    next.splice(nextIndex, 0, line)
+    setDialogueOrder(next)
+
+    if (isDialogueSolved(next) && !dialogueSolvedSoundPlayedRef.current) {
+      playSfx('success')
+      dialogueSolvedSoundPlayedRef.current = true
+    }
   }
 
   useEffect(() => {
@@ -278,35 +286,6 @@ function App() {
 
     window.localStorage.setItem(STORAGE_KEY, String(sceneIndex))
   }, [resumePromptVisible, sceneIndex])
-
-  useEffect(() => {
-    if (currentScene !== 'puzzle') {
-      return
-    }
-
-    if (puzzleSolved) {
-      setPuzzleMessage('Scene complete. Continue to the next memory.')
-    }
-  }, [currentScene, puzzleSolved])
-
-  useEffect(() => {
-    if (currentScene !== 'dialogue') {
-      return
-    }
-
-    if (dialogueSolved) {
-      setDialogueMessage('The dialogue now flows. Continue when ready.')
-      if (!dialogueSolvedSoundPlayedRef.current) {
-        playSfx('success')
-        dialogueSolvedSoundPlayedRef.current = true
-      }
-      return
-    }
-
-    setDialogueMessage(
-      `Correct position: ${dialogueMatches}/${DIALOGUE_TARGET_ORDER.length}. Keep adjusting.`,
-    )
-  }, [currentScene, dialogueMatches, dialogueSolved, playSfx])
 
   function renderScene() {
     if (currentScene === 'introCommute') {
