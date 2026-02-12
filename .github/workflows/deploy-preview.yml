@@ -9,8 +9,8 @@ on:
       - synchronize
       - reopened
     paths:
-      - 'game-mvp/**'
-      - '.github/workflows/**'
+      - "game-mvp/**"
+      - ".github/workflows/**"
 
 jobs:
   deploy-preview:
@@ -91,3 +91,69 @@ jobs:
               issue_number: context.issue.number,
               body
             });
+
+      - name: Notify Feishu (preview success)
+        if: success() && secrets.FEISHU_WEBHOOK_URL != ''
+        continue-on-error: true
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          DEPLOY_URL: ${{ steps.deploy.outputs.url }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BRANCH_NAME: ${{ github.head_ref }}
+          SHA_VALUE: ${{ github.sha }}
+          REPO: ${{ github.repository }}
+          ACTOR: ${{ github.actor }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          PAYLOAD="$(python3 - <<'PY'
+          import json
+          import os
+
+          text = (
+              "部署通知 ✅ Preview 部署成功\n"
+              f"仓库: {os.environ['REPO']}\n"
+              f"PR: #{os.environ['PR_NUMBER']}\n"
+              f"分支: {os.environ['BRANCH_NAME']}\n"
+              f"Commit: {os.environ['SHA_VALUE'][:7]}\n"
+              f"预览链接: {os.environ['DEPLOY_URL']}\n"
+              f"触发人: {os.environ['ACTOR']}\n"
+              f"日志: {os.environ['RUN_URL']}"
+          )
+          print(json.dumps({"msg_type": "text", "content": {"text": text}}, ensure_ascii=False))
+          PY
+          )"
+          curl -sS -X POST "$FEISHU_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
+
+      - name: Notify Feishu (preview failure)
+        if: failure() && secrets.FEISHU_WEBHOOK_URL != ''
+        continue-on-error: true
+        env:
+          FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BRANCH_NAME: ${{ github.head_ref }}
+          SHA_VALUE: ${{ github.sha }}
+          REPO: ${{ github.repository }}
+          ACTOR: ${{ github.actor }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          PAYLOAD="$(python3 - <<'PY'
+          import json
+          import os
+
+          text = (
+              "部署通知 ❌ Preview 部署失败\n"
+              f"仓库: {os.environ['REPO']}\n"
+              f"PR: #{os.environ['PR_NUMBER']}\n"
+              f"分支: {os.environ['BRANCH_NAME']}\n"
+              f"Commit: {os.environ['SHA_VALUE'][:7]}\n"
+              f"触发人: {os.environ['ACTOR']}\n"
+              f"日志: {os.environ['RUN_URL']}"
+          )
+          print(json.dumps({"msg_type": "text", "content": {"text": text}}, ensure_ascii=False))
+          PY
+          )"
+          curl -sS -X POST "$FEISHU_WEBHOOK_URL" \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD"
