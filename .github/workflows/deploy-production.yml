@@ -1,0 +1,51 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+      - dev
+    paths:
+      - 'game-mvp/**'
+      - '.github/workflows/**'
+  workflow_dispatch:
+
+jobs:
+  deploy-production:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Write Vercel project mapping
+        run: |
+          mkdir -p .vercel
+          printf '{"projectId":"%s","orgId":"%s"}' "$VERCEL_PROJECT_ID" "$VERCEL_ORG_ID" > .vercel/project.json
+
+      - name: Deploy production
+        id: deploy
+        run: |
+          DEPLOY_OUTPUT="$(vercel deploy --yes --prod --scope="$VERCEL_ORG_ID" --token="$VERCEL_TOKEN")"
+          echo "$DEPLOY_OUTPUT"
+          DEPLOYMENT_URL="$(printf "%s\n" "$DEPLOY_OUTPUT" | awk 'match($0,/https:\/\/[A-Za-z0-9.-]+\.vercel\.app/){url=substr($0,RSTART,RLENGTH)} END{print url}')"
+          if [ -z "$DEPLOYMENT_URL" ]; then
+            echo "Failed to detect production URL from Vercel output"
+            exit 1
+          fi
+          echo "url=$DEPLOYMENT_URL" >> "$GITHUB_OUTPUT"
+
+      - name: Write production URL to workflow summary
+        run: |
+          echo "## Production 部署完成" >> "$GITHUB_STEP_SUMMARY"
+          echo "" >> "$GITHUB_STEP_SUMMARY"
+          echo "- URL: ${{ steps.deploy.outputs.url }}" >> "$GITHUB_STEP_SUMMARY"
