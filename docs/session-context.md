@@ -2,6 +2,12 @@
 
 最后更新：2026-02-12
 
+## 0) 最高优先目标（新增）
+
+用户目标：**不看一行代码、不写一行命令，仅通过对话完成游戏制作。**
+
+对应约束文档：`docs/organization/no-code-director-mode.md`
+
 ## 1) 当前项目目标（已落地）
 
 - 项目：`game-mvp`（React + TypeScript + Vite）
@@ -28,6 +34,24 @@
 ## 2) 你要的核心流程（阶段 A）
 
 你在手机 Web Cursor 提需求 -> 我改代码并推分支 -> 自动生成预览链接 -> 你说“确认” -> 我执行合并 -> 自动生产部署。
+
+## 2.1) 当前对“零代码导演模式”的达成度（审视结论）
+
+已满足：
+
+- 代码修改、命令执行、提交推送、部署触发由 Agent 代办
+- 预览链接可由 Agent 直接提供
+- 用户可通过“确认”驱动合并/发布流程
+
+未完全满足（仍有一次性硬阻塞）：
+
+1. 首次平台权限初始化（如 Secrets 写入）在当前权限不足时需用户手动完成
+2. 第三方账号授权（支付/组织权限）需用户本人确认
+
+改进策略：
+
+- 所有需要用户动作的步骤限制为 1~3 步并一次性完成
+- 完成后回到全代办模式
 
 ## 3) 自动化现状（已在仓库）
 
@@ -64,12 +88,13 @@ GitHub Secrets 必须存在：
 
 每次新会话启动后必须先做：
 
-1. 读取本文件和 `docs/mobile-cursor-workflow.md`
-2. 读取 `docs/organization/multi-agent-system.md`
-3. 读取 `docs/skills/context-load.md`
-4. 读取 `docs/agents/README.md`
-5. `git status -sb` 确认分支和工作区
-6. 再开始执行用户需求
+1. 读取 `docs/organization/no-code-director-mode.md`
+2. 读取本文件和 `docs/mobile-cursor-workflow.md`
+3. 读取 `docs/organization/multi-agent-system.md`
+4. 读取 `docs/skills/context-load.md`
+5. 读取 `docs/agents/README.md`
+6. `git status -sb` 确认分支和工作区
+7. 再开始执行用户需求
 
 ## 7) 变更原则
 

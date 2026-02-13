@@ -9,5 +9,6 @@
 - 故事自动生成内容包 Skill：`docs/story-generation-skill.md`
 - 多 Agent 系统总览：`docs/organization/multi-agent-system.md`
 - 协作协议：`docs/organization/collaboration-protocol.md`
+- 零代码导演模式（最高优先）：`docs/organization/no-code-director-mode.md`
 - 共享 Skills：`docs/skills/README.md`
 - 职能目录：`docs/agents/README.md`
