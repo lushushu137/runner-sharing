@@ -12,6 +12,9 @@
   - SaveRepository（版本化本地存档）
   - TimelineEngine + AudioConductor（节奏 cue 与音频路由）
   - DebugPanel（跳场景、变量注入、重置）
+  - Story Generation Skill（故事文本 -> 自动内容包）
+
+当前默认内容包：`src/framework/content/generated/ch01-fallen-bean.story.ts`
 
 ## 2) 你要的核心流程（阶段 A）
 

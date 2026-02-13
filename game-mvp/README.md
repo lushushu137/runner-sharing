@@ -50,6 +50,20 @@ npm run lint
 npm run build
 ```
 
+## Story Generation Skill
+
+Generate a chapter package from raw story text:
+
+```bash
+cat story.txt | npm run generate:story -- \
+  --chapter-id chapter-01-my-story \
+  --title "第一章：我的标题" \
+  --minutes 12 \
+  --output src/framework/content/generated/ch01-my-story.story.ts
+```
+
+Then wire the generated file in `src/framework/content/loadStoryPackage.ts`.
+
 ## Notes
 
 - Audio files are generated placeholders in `public/audio/`.
