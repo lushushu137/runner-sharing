@@ -16,6 +16,15 @@
 
 当前默认内容包：`src/framework/content/generated/ch01-fallen-bean.story.ts`
 
+## 1.1) 多 Agent 协作框架（已搭建）
+
+- 系统总览：`docs/organization/multi-agent-system.md`
+- 协作协议：`docs/organization/collaboration-protocol.md`
+- 共享 Skills：`docs/skills/README.md`
+- 职能目录：`docs/agents/README.md`
+- 8 个角色目录已创建并写入职责说明：
+  - architect / narrative / level / gameplay / art / audio / qa / release
+
 ## 2) 你要的核心流程（阶段 A）
 
 你在手机 Web Cursor 提需求 -> 我改代码并推分支 -> 自动生成预览链接 -> 你说“确认” -> 我执行合并 -> 自动生产部署。
@@ -56,8 +65,11 @@ GitHub Secrets 必须存在：
 每次新会话启动后必须先做：
 
 1. 读取本文件和 `docs/mobile-cursor-workflow.md`
-2. `git status -sb` 确认分支和工作区
-3. 再开始执行用户需求
+2. 读取 `docs/organization/multi-agent-system.md`
+3. 读取 `docs/skills/context-load.md`
+4. 读取 `docs/agents/README.md`
+5. `git status -sb` 确认分支和工作区
+6. 再开始执行用户需求
 
 ## 7) 变更原则
 

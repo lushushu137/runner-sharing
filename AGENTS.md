@@ -5,7 +5,11 @@
 Before making any change, read:
 
 1. `docs/session-context.md`
-2. `docs/mobile-cursor-workflow.md`
+2. `docs/organization/multi-agent-system.md`
+3. `docs/organization/collaboration-protocol.md`
+4. `docs/skills/context-load.md`
+5. `docs/agents/README.md`
+6. `docs/mobile-cursor-workflow.md`
 
 The goal is to restore project context quickly after context-window loss or session restart.
 
