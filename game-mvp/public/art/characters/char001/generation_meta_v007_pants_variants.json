@@ -1,0 +1,42 @@
+{
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "anchors": {
+    "identity": "master_v005_pixelcute_bangswispy_blushlighter.jpg",
+    "fullbody": "master_v006_fullbody_cargopants_sneakers.jpg"
+  },
+  "colorsLeftToRight": [
+    {
+      "name": "cool light gray",
+      "hex": "#D7DDE3"
+    },
+    {
+      "name": "warm light gray",
+      "hex": "#D2CBC2"
+    },
+    {
+      "name": "beige",
+      "hex": "#E6D6BF"
+    },
+    {
+      "name": "sand",
+      "hex": "#D6C2A1"
+    },
+    {
+      "name": "light taupe",
+      "hex": "#CBBEAD"
+    }
+  ],
+  "notes": {
+    "bangs": "slightly longer than identity anchor",
+    "blush": "very faint",
+    "pants": "baggy cargo pants + pockets, shape fixed",
+    "sneakers": "white"
+  },
+  "prompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients. Chibi/kawaii proportions: large head, big expressive eyes, small body. Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline. Plain pastel background. No text, no watermark, no logo.\nYou are given two anchors: Anchor A = identity (face/hair/hoodie vibe). Anchor B = fullbody (pose, proportions, sneakers, cargo pants shape). Keep the face identity and hair silhouette of Anchor A. Keep the body proportions and pose of Anchor B. Do not redesign the character.\nMake bangs slightly LONGER than Anchor A (just a touch): more fringe strands reaching a bit lower, still cute and neat. Blush should be VERY faint (lighter than before). Generate 5 variants that are identical except pants color. Pants are baggy cargo pants with pockets; keep same shape. Sneakers must remain clean white.\nPants color variants (left to right panels): 1) cool light gray (#D7DDE3), 2) warm light gray (#D2CBC2), 3) beige (#E6D6BF), 4) sand (#D6C2A1), 5) light taupe (#CBBEAD).\nTask: Generate ONE comparison sheet image with 5 vertical panels inside the same image. Each panel shows the same full-body FRONT view character, same pose, same hoodie, same hair, same sneakers. Only pants color changes per panel following the exact left-to-right order above. Faint panel separators are allowed. No text labels.",
+  "output": "pants_variants_v007_sheet.jpg"
+}

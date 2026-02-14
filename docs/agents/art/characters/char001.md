@@ -77,6 +77,15 @@
 - 生成元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v006_fullbody_cargopants_sneakers.json`
 
+### v007（裤子浅色方案对比：5种可选 + 刘海略更长）
+
+> 说明：这是“同一个正面全身姿势”的 5 面板对比图，仅裤子颜色不同（从左到右 1~5）。
+
+- Pants variants sheet（左->右 1~5）：  
+  `game-mvp/public/art/characters/char001/pants_variants_v007_sheet.jpg`
+- 元信息（包含左->右颜色映射与 hex）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v007_pants_variants.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -85,4 +94,4 @@
 
 ## 待你确认
 
-1. v006 这套“工装裤 + 白鞋”的全身与转身是否可以作为游戏内标准设定？
+1. 请选择 v007 的裤子颜色（从左到右 1~5 选一个），我会把该颜色固化并重生成一套完整转身图。
