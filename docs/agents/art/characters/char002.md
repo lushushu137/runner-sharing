@@ -32,9 +32,9 @@
 
 > 仅作风格参考，不拷贝具体构图/角色。
 
-- `game-mvp/public/art/characters/char002/refs/ref_pinterest_01.jpg`
-- `game-mvp/public/art/characters/char002/refs/ref_pinterest_02.jpg`
-- `game-mvp/public/art/characters/char002/refs/ref_pinterest_03.jpg`
+- https://pin.it/5Qdh142GG
+- https://pin.it/6xTfPX4YO
+- https://pin.it/4uaXaTEpj
 
 ### 历史版本
 
