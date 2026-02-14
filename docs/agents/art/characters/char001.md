@@ -55,6 +55,17 @@
 - 生成元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v004_pixelcute_shoulderblush.json`
 
+### v005（v004 微调：刘海更碎更长 + 腮红更淡）
+
+- Master（前视全身，身份锚点）：  
+  `game-mvp/public/art/characters/char001/master_v005_pixelcute_bangswispy_blushlighter.jpg`
+- Turnaround（正/3-4/侧/背 全身）：  
+  `game-mvp/public/art/characters/char001/turnaround_v005_pixelcute_bangswispy_blushlighter.jpg`
+- Expressions（3x3 表情表）：  
+  `game-mvp/public/art/characters/char001/expressions_v005_pixelcute_bangswispy_blushlighter.jpg`
+- 生成元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v005_pixelcute_bangswispy_blushlighter.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -63,4 +74,4 @@
 
 ## 待你确认
 
-1. v004 的“肩长头发 + 淡腮红 + 不呆板刘海”是否已经到位？
+1. v005 的“刘海更碎更长 + 腮红更淡”是否已经到位？
