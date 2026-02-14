@@ -86,6 +86,17 @@
 - 元信息（包含左->右颜色映射与 hex）：  
   `game-mvp/public/art/characters/char001/generation_meta_v007_pants_variants.json`
 
+### v008（服装改为宽松短裤 + 刘海更长一点点）
+
+> 说明：这是新的“全身标准版”候选：宽松短裤 + 白色运动鞋（含四视图转身）。
+
+- Master（前视全身）：  
+  `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
+- Turnaround（正/3-4/侧/背 全身）：  
+  `game-mvp/public/art/characters/char001/turnaround_v008_fullbody_shorts_bangslonger.jpg`
+- 元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v008_shorts.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -94,4 +105,4 @@
 
 ## 待你确认
 
-1. 请选择 v007 的裤子颜色（从左到右 1~5 选一个），我会把该颜色固化并重生成一套完整转身图。
+1. 是否确认 v008 作为角色全身标准设定（宽松短裤 + 刘海更长一点点）？
