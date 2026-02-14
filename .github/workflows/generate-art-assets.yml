@@ -35,9 +35,13 @@ on:
         description: Commit message
         required: true
         default: "feat(art): generate char002 Kucha master v004 via Nano Banana"
+  push:
+    branches:
+      - "cursor/**"
 
 jobs:
-  generate:
+  generate-dispatch:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -210,5 +214,173 @@ jobs:
           git add -A
           git status --porcelain
           git commit -m "$COMMIT_MESSAGE"
+          git push
+
+  generate-kucha-v004:
+    # Trigger by pushing a commit with marker in message, e.g. "[generate-kucha]"
+    if: github.event_name == 'push' && github.actor != 'github-actions[bot]' && contains(github.event.head_commit.message, '[generate-kucha]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Resolve API key
+        env:
+          KEY_A: ${{ secrets.GOOGLE_API_KEY }}
+          KEY_B: ${{ secrets.GEMINI_API_KEY }}
+          KEY_C: ${{ secrets.GOOGLE_GENERATIVE_AI_KEY }}
+          KEY_D: ${{ secrets.GOOGLE_GENAI_API_KEY }}
+        run: |
+          if [ -n "$KEY_A" ]; then echo "GOOGLE_API_KEY=$KEY_A" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_B" ]; then echo "GOOGLE_API_KEY=$KEY_B" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_C" ]; then echo "GOOGLE_API_KEY=$KEY_C" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_D" ]; then echo "GOOGLE_API_KEY=$KEY_D" >> "$GITHUB_ENV"; exit 0; fi
+          echo "No API key secret found. Configure one of: GOOGLE_API_KEY / GEMINI_API_KEY / GOOGLE_GENERATIVE_AI_KEY / GOOGLE_GENAI_API_KEY"
+          exit 1
+
+      - name: Generate master (Nano Banana) — Kucha v004
+        id: master
+        env:
+          STYLE_LOCK_JSON: game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json
+          PROMPT_FILE: game-mvp/public/art/characters/char002/prompt_v004_kucha_master_nanobanana.txt
+          OUT_PREFIX: game-mvp/public/art/characters/char002/master_v004_kucha_nanobanana
+        run: |
+          node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.env.STYLE_LOCK_JSON,"utf8"));(j.referenceImages||[]).forEach(u=>console.log(u));' > /tmp/style_refs.txt
+          REF_ARGS=()
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            REF_ARGS+=("--ref" "$u")
+          done < /tmp/style_refs.txt
+          MASTER_PATH="$(node game-mvp/scripts/nano-banana/generate-image.mjs --model nano-banana-pro-preview --prompt-file "$PROMPT_FILE" --out "$OUT_PREFIX" --temperature 0.12 "${REF_ARGS[@]}")"
+          echo "path=$MASTER_PATH" >> "$GITHUB_OUTPUT"
+          echo "Generated master: $MASTER_PATH"
+
+      - name: Build settei from master (layout only)
+        env:
+          MASTER_PATH: ${{ steps.master.outputs.path }}
+          SETTEI_FILE: game-mvp/public/art/characters/char002/settei_v004_kucha_nanobanana.png
+        run: |
+          python - <<'PY'
+          from __future__ import annotations
+          import os
+          from pathlib import Path
+          from PIL import Image
+          
+          master_path = Path(os.environ["MASTER_PATH"])
+          out_settei = Path(os.environ["SETTEI_FILE"])
+          out_settei.parent.mkdir(parents=True, exist_ok=True)
+          
+          img = Image.open(master_path).convert("RGB")
+          W, H = img.size
+          bg = img.getpixel((0, 0))
+          
+          px = img.load()
+          def diff(c):
+            return abs(c[0]-bg[0]) + abs(c[1]-bg[1]) + abs(c[2]-bg[2])
+          
+          T = 40
+          minx, miny = W, H
+          maxx, maxy = -1, -1
+          for y in range(H):
+            for x in range(W):
+              if diff(px[x,y]) > T:
+                if x < minx: minx = x
+                if y < miny: miny = y
+                if x > maxx: maxx = x
+                if y > maxy: maxy = y
+          
+          if maxx < 0:
+            minx, miny, maxx, maxy = 0, 0, W-1, H-1
+          
+          bbox_h = maxy - miny + 1
+          cx = (minx + maxx) // 2
+          head_y = int(miny + bbox_h * 0.22)
+          
+          CROP = 320
+          left = max(0, min(W - CROP, cx - CROP // 2))
+          upper = max(0, min(H - CROP, head_y - CROP // 2))
+          closeup = img.crop((left, upper, left + CROP, upper + CROP))
+          
+          gap = 32
+          canvas_w = W + gap + CROP + gap
+          canvas_h = H
+          canvas = Image.new("RGB", (canvas_w, canvas_h), bg)
+          canvas.paste(img, (0, 0))
+          canvas.paste(closeup, (W + gap, (H - CROP) // 2))
+          canvas.save(out_settei)
+          print("Wrote", out_settei)
+          PY
+
+      - name: Write meta + update canonical
+        env:
+          CHARACTER_ID: char002
+          PROMPT_FILE: game-mvp/public/art/characters/char002/prompt_v004_kucha_master_nanobanana.txt
+          STYLE_LOCK_JSON: game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json
+          MASTER_PATH: ${{ steps.master.outputs.path }}
+          SETTEI_FILE: game-mvp/public/art/characters/char002/settei_v004_kucha_nanobanana.png
+          META_FILE: game-mvp/public/art/characters/char002/generation_meta_v004_kucha_nanobanana.json
+          CANONICAL_FILE: game-mvp/public/art/characters/char002/canonical.json
+        run: |
+          node - <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          
+          const characterId = process.env.CHARACTER_ID;
+          const prompt = fs.readFileSync(process.env.PROMPT_FILE, "utf8");
+          const styleLock = JSON.parse(fs.readFileSync(process.env.STYLE_LOCK_JSON, "utf8"));
+          const canonicalPath = process.env.CANONICAL_FILE;
+          const canonical = JSON.parse(fs.readFileSync(canonicalPath, "utf8"));
+          
+          const masterBasename = path.basename(process.env.MASTER_PATH);
+          const setteiBasename = path.basename(process.env.SETTEI_FILE);
+          const metaPath = process.env.META_FILE;
+          
+          const meta = {
+            version: "v004",
+            characterId,
+            model: styleLock.model || "nano-banana-pro-preview",
+            prompt,
+            styleLock: path.basename(process.env.STYLE_LOCK_JSON),
+            referenceImages: styleLock.referenceImages || [],
+            outputs: {
+              master: masterBasename,
+              settei: setteiBasename,
+            },
+          };
+          fs.mkdirSync(path.dirname(metaPath), { recursive: true });
+          fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2), "utf8");
+          
+          canonical.master = masterBasename;
+          canonical.settei = setteiBasename;
+          canonical.notes = canonical.notes || {};
+          canonical.notes.status = "draft";
+          canonical.notes.generated = "nano-banana";
+          canonical.notes.styleLock = canonical.styleLock || "../../style/style_lock_xiaoyou_pixel_v001.json";
+          fs.writeFileSync(canonicalPath, JSON.stringify(canonical, null, 2) + "\\n", "utf8");
+          NODE
+
+      - name: Commit and push generated assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --porcelain
+          git commit -m "feat(art): generate char002 Kucha master v004 via Nano Banana [skip-generate]"
           git push
 
