@@ -1,0 +1,89 @@
+{
+  "version": "v001",
+  "characterId": "char002",
+  "displayName": "Kucha",
+  "method": "programmatic pixel-art sprite (deterministic) + nearest-neighbor scale",
+  "params": {
+    "grid": 128,
+    "scale": 8,
+    "exprCropPx": 320,
+    "exprCropOriginPx": [
+      352,
+      184
+    ]
+  },
+  "palette": {
+    "outline": [
+      26,
+      26,
+      26,
+      255
+    ],
+    "grey": [
+      145,
+      150,
+      160,
+      255
+    ],
+    "grey_shadow": [
+      112,
+      118,
+      128,
+      255
+    ],
+    "stripe": [
+      74,
+      79,
+      86,
+      255
+    ],
+    "white": [
+      245,
+      242,
+      237,
+      255
+    ],
+    "white_shadow": [
+      217,
+      214,
+      209,
+      255
+    ],
+    "cheese": [
+      242,
+      194,
+      107,
+      255
+    ],
+    "cheese_shadow": [
+      217,
+      163,
+      92,
+      255
+    ],
+    "ear_inner": [
+      231,
+      170,
+      185,
+      255
+    ],
+    "nose": [
+      200,
+      143,
+      143,
+      255
+    ],
+    "eye": [
+      20,
+      20,
+      20,
+      255
+    ],
+    "eye_hi": [
+      255,
+      255,
+      255,
+      255
+    ]
+  }
+}
