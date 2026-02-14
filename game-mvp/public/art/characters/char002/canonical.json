@@ -4,11 +4,11 @@
   "species": "cat",
   "style": "pixel-cute",
   "lockedAt": "2026-02-14",
-  "master": "master_v001_kucha.png",
-  "settei": "settei_v001_kucha.png",
+  "master": "master_v002_kucha.png",
+  "settei": "settei_v002_kucha.png",
   "notes": {
-    "description": "chubby American shorthair + white + cheese patches",
-    "pose": "sitting (front)",
+    "description": "silver tabby American shorthair + white (based on user photo)",
+    "pose": "sitting (slight 3/4)",
     "status": "draft"
   }
 }

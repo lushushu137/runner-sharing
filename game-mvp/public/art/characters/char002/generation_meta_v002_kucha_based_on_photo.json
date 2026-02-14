@@ -1,0 +1,117 @@
+{
+  "version": "v002",
+  "characterId": "char002",
+  "displayName": "Kucha",
+  "reference": {
+    "type": "user_photo",
+    "description": "silver tabby + white American shorthair sitting, round face, clear forehead tabby pattern, white chest/belly"
+  },
+  "method": "programmatic pixel-art sprite (deterministic) + nearest-neighbor scale",
+  "params": {
+    "grid": 128,
+    "scale": 8,
+    "closeupCropPx": 320,
+    "closeupOriginPx": [
+      320,
+      192
+    ]
+  },
+  "palette": {
+    "outline": [
+      26,
+      26,
+      26,
+      255
+    ],
+    "fur_light": [
+      185,
+      190,
+      200,
+      255
+    ],
+    "fur_mid": [
+      155,
+      160,
+      170,
+      255
+    ],
+    "fur_shadow": [
+      120,
+      125,
+      136,
+      255
+    ],
+    "stripe": [
+      78,
+      82,
+      90,
+      255
+    ],
+    "stripe2": [
+      58,
+      60,
+      66,
+      255
+    ],
+    "white": [
+      246,
+      244,
+      240,
+      255
+    ],
+    "white_shadow": [
+      220,
+      218,
+      213,
+      255
+    ],
+    "ear_inner": [
+      234,
+      176,
+      188,
+      255
+    ],
+    "nose": [
+      206,
+      150,
+      156,
+      255
+    ],
+    "eye_line": [
+      22,
+      22,
+      22,
+      255
+    ],
+    "iris": [
+      110,
+      138,
+      118,
+      255
+    ],
+    "iris_shadow": [
+      88,
+      112,
+      96,
+      255
+    ],
+    "pupil": [
+      18,
+      18,
+      18,
+      255
+    ],
+    "hi": [
+      255,
+      255,
+      255,
+      255
+    ],
+    "whisker": [
+      100,
+      100,
+      105,
+      255
+    ]
+  }
+}

@@ -4,15 +4,15 @@
 
 - 名字：Kucha
 - 物种：猫
-- 花色关键词：胖胖美短 + 白 + 起司色块（奶酪色）
+- 花色关键词：胖胖美短（银灰虎斑）+ 加白（基于你提供的真实照片）
 - 体型：圆润、短腿、肚子大（抱起来很软的那种）
-- 版本状态：v001 草案（可继续微调）
+- 版本状态：v002 当前（以照片为准，可继续微调）
 
 ## 一致性锁定点（DNA 摘要）
 
 - 轮廓：大头 + 大肚子 + 小短腿 + 坐姿
-- 花色：灰色主体（美短感）+ 白色脸/肚皮 + 起司色块点缀
-- 眼睛：黑色大眼（像素方圆结合），有 1px 高光
+- 花色：银灰主体（美短虎斑感）+ 白色脸/胸/肚皮 + 侧身深色条纹
+- 眼睛：偏绿的猫眼（有高光）
 - 线条：1px 深色外轮廓 + 简单两档阴影
 
 ## 输出资产（可直接访问）
@@ -21,16 +21,23 @@
 
 - Canonical mapping：  
   `game-mvp/public/art/characters/char002/canonical.json`
-- Master（全身基准）：  
-  `game-mvp/public/art/characters/char002/master_v001_kucha.png`
-- Settei（设定图：全身 + 近景）：  
-  `game-mvp/public/art/characters/char002/settei_v001_kucha.png`
-- Meta（生成参数/调色板记录）：  
+- Master（全身基准，v002）：  
+  `game-mvp/public/art/characters/char002/master_v002_kucha.png`
+- Settei（设定图：全身 + 近景，v002）：  
+  `game-mvp/public/art/characters/char002/settei_v002_kucha.png`
+- Meta（v002，记录调色板/参数；参考为“用户照片描述”）：  
+  `game-mvp/public/art/characters/char002/generation_meta_v002_kucha_based_on_photo.json`
+
+### 历史版本
+
+- v001（初稿，不再作为当前基准）：  
+  `game-mvp/public/art/characters/char002/master_v001_kucha.png`  
+  `game-mvp/public/art/characters/char002/settei_v001_kucha.png`  
   `game-mvp/public/art/characters/char002/generation_meta_v001_kucha.json`
 
 ## 待你确认（给我一句话就行）
 
-1. 起司色块的位置（现在：左额头 + 右肩背）要不要换？  
-2. 眼睛想更「圆」一点，还是保持现在这种更呆萌的「方圆」？  
+1. 花纹密度：条纹要更明显一点还是更淡一点？  
+2. 眼睛：想更接近照片（更圆、更像真实猫）还是保持更“像素萌”的大眼？  
 3. 要不要加一个小项圈（无/纯色/带铃铛）？
 
