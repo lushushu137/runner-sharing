@@ -24,6 +24,15 @@
 
 > 这些文件已放入 `game-mvp/public/`，部署后可直接通过 URL 访问。
 
+## 已锁定的最终设定（当前生效）
+
+- Canonical mapping（给引擎/内容引用用）：  
+  `game-mvp/public/art/characters/char001/canonical.json`
+- Master（最终：graphite 卫衣）：  
+  `game-mvp/public/art/characters/char001/hoodie_variants_v011_03_graphite.jpg`
+- Turnaround（最终：与 master 一致）：  
+  `game-mvp/public/art/characters/char001/turnaround_v012_graphite_final.jpg`
+
 ### v002（像素风，推荐用于游戏）
 
 - Turnaround（正/3-4/侧/背 全身）：  
@@ -130,6 +139,15 @@
 - 元信息（含颜色hex与文件名映射）：  
   `game-mvp/public/art/characters/char001/generation_meta_v011_hoodie_variants.json`
 
+已选择：graphite（#3）
+
+### v012（转身一致性修复：基于 graphite master 重生成四视图）
+
+- Turnaround：  
+  `game-mvp/public/art/characters/char001/turnaround_v012_graphite_final.jpg`
+- Meta：  
+  `game-mvp/public/art/characters/char001/generation_meta_v012_turnaround_graphite.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -138,4 +156,4 @@
 
 ## 待你确认
 
-1. 请选择 v011 的卫衣颜色（1~5），我会把该颜色固化并更新最终设定图/转身图。
+1. 如需下一步：是否要基于“最终设定”再生成一套带眼镜的表情表（3x3）？

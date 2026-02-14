@@ -1,0 +1,14 @@
+{
+  "characterId": "char001",
+  "lockedAt": "2026-02-14",
+  "style": "pixel-cute",
+  "identityAnchor": "master_v005_pixelcute_bangswispy_blushlighter.jpg",
+  "master": "hoodie_variants_v011_03_graphite.jpg",
+  "turnaround": "turnaround_v012_graphite_final.jpg",
+  "notes": {
+    "glasses": "round thin rim (variant #1)",
+    "bangs": "longest strand reaches ~half lens height",
+    "outfit": "graphite hoodie + baggy shorts + white sneakers",
+    "status": "locked"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "selectedMaster": "hoodie_variants_v011_03_graphite.jpg",
+  "styleGuide": "Here is a summary of the pixel-art style based on the reference images:\n\n*   **Pixel Crispness:** The style features a low resolution with very distinct, sharp, and blocky pixels, creating a clear retro aesthetic.\n*   **Outline:** Subjects are defined by a prominent, dark (usually black), single-pixel outline that separates them from the background and defines their features.\n*   **Palette:** The color palettes are limited, using a small number of muted or pastel colors for each element, with distinct shades for base color, shadow, and highlight.\n*   **Shading:** Shading is achieved through simple, blocky areas of darker color (cel-shading), often accompanied by small, bright pixel highlights on hair and eyes to add depth.",
+  "prompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients. Chibi/kawaii proportions, dark 1px outline, limited palette, simple 2-3 shade cell shading. Plain pastel background. No text.\n[REFERENCE STYLE NOTES]\nHere is a summary of the pixel-art style based on the reference images:\n\n*   **Pixel Crispness:** The style features a low resolution with very distinct, sharp, and blocky pixels, creating a clear retro aesthetic.\n*   **Outline:** Subjects are defined by a prominent, dark (usually black), single-pixel outline that separates them from the background and defines their features.\n*   **Palette:** The color palettes are limited, using a small number of muted or pastel colors for each element, with distinct shades for base color, shadow, and highlight.\n*   **Shading:** Shading is achieved through simple, blocky areas of darker color (cel-shading), often accompanied by small, bright pixel highlights on hair and eyes to add depth.\n\nUse the provided master sprite as the canonical identity AND outfit color reference. Keep the exact same face, eye shape, hair silhouette and bangs length, glasses (round thin rim), hoodie color (graphite), shorts, socks, sneakers, and pose style. Do not redesign anything.\nBangs constraint: longest fringe strand reaches about half the glasses lens height; keep it wispy and cute. Hoodie color constraint: graphite/dark gray; keep readable folds and not merge into hair.\nTask: Generate ONE turnaround sheet image with 4 panels: full-body front (neutral), 3/4, side, back. All panels must match the master sprite identity and outfit. Each panel looks like a 64x160 sprite scaled up 8x with nearest-neighbor. Faint panel separators allowed. No text labels.",
+  "output": "turnaround_v012_graphite_final.jpg",
+  "fixed": {
+    "hoodieVariant": "graphite (v011 #3)",
+    "glasses": "round thin rim",
+    "outfit": "hoodie + baggy shorts + white sneakers"
+  }
+}
