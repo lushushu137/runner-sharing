@@ -5,8 +5,12 @@
   "identityAnchor": "master_v005_pixelcute_bangswispy_blushlighter.jpg",
   "master": "hoodie_variants_v011_03_graphite.jpg",
   "turnaround": "turnaround_v012_graphite_final.jpg",
+  "masterNoGlasses": "master_v008_fullbody_shorts_bangslonger.jpg",
+  "turnaroundNoGlasses": "turnaround_v008_fullbody_shorts_bangslonger.jpg",
+  "proportionReference": "master_v008_fullbody_shorts_bangslonger.jpg",
   "notes": {
     "glasses": "round thin rim (variant #1)",
+    "noGlasses": "use v008 as canonical proportion baseline",
     "bangs": "longest strand reaches ~half lens height",
     "outfit": "graphite hoodie + baggy shorts + white sneakers",
     "status": "locked"

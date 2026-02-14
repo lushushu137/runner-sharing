@@ -32,6 +32,10 @@
   `game-mvp/public/art/characters/char001/hoodie_variants_v011_03_graphite.jpg`
 - Turnaround（最终：与 master 一致）：  
   `game-mvp/public/art/characters/char001/turnaround_v012_graphite_final.jpg`
+- 无眼镜参考（头身比基准 / graphite 衣服）：  
+  `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
+- 无眼镜 Turnaround（参考用）：  
+  `game-mvp/public/art/characters/char001/turnaround_v008_fullbody_shorts_bangslonger.jpg`
 
 ### v002（像素风，推荐用于游戏）
 
