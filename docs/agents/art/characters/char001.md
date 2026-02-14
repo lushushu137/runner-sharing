@@ -1,7 +1,8 @@
-# 角色设定：char001（女主原型）
+# 角色设定：char001（小悠）
 
 ## 简述
 
+- 名字（暂定）：小悠
 - 性别：女性
 - 年龄：22
 - 气质：忧郁、呆萌、疲惫但温和
@@ -28,14 +29,14 @@
 
 - Canonical mapping（给引擎/内容引用用）：  
   `game-mvp/public/art/characters/char001/canonical.json`
-- Master（最终：graphite 卫衣）：  
-  `game-mvp/public/art/characters/char001/hoodie_variants_v011_03_graphite.jpg`
-- Turnaround（最终：与 master 一致）：  
-  `game-mvp/public/art/characters/char001/turnaround_v012_graphite_final.jpg`
-- 无眼镜参考（头身比基准 / graphite 衣服）：  
+- 核心基准 Master（无眼镜 / graphite 衣服 / 头身比基准）：  
   `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
-- 无眼镜 Turnaround（参考用）：  
+- 核心基准 Turnaround（无眼镜）：  
   `game-mvp/public/art/characters/char001/turnaround_v008_fullbody_shorts_bangslonger.jpg`
+- 设定图（基准全身 + 眼镜状态表情）：  
+  `game-mvp/public/art/characters/char001/settei_v013_xiaoyou.png`
+- 眼镜状态：近景表情（4 格）：  
+  `game-mvp/public/art/characters/char001/glasses_expressions_v013_xiaoyou.png`
 
 ### v002（像素风，推荐用于游戏）
 
@@ -145,12 +146,23 @@
 
 已选择：graphite（#3）
 
-### v012（转身一致性修复：基于 graphite master 重生成四视图）
+> 注：v011/v012 为“戴眼镜全身版”的历史产物；当前人物核心基准已切换为 **v008 无眼镜**（小悠）。
+
+### v012（历史：戴眼镜全身版转身一致性修复，现不作为默认基准）
 
 - Turnaround：  
   `game-mvp/public/art/characters/char001/turnaround_v012_graphite_final.jpg`
 - Meta：  
   `game-mvp/public/art/characters/char001/generation_meta_v012_turnaround_graphite.json`
+
+### v013（小悠设定图：v008 基准 + 眼镜状态表情）
+
+- 设定图（基准全身 + 眼镜状态表情）：  
+  `game-mvp/public/art/characters/char001/settei_v013_xiaoyou.png`
+- 眼镜状态表情（4 格）：  
+  `game-mvp/public/art/characters/char001/glasses_expressions_v013_xiaoyou.png`
+- Meta（生成参数记录）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v013_xiaoyou_settei.json`
 
 ### v001（非像素风，概念对照用）
 
@@ -160,4 +172,4 @@
 
 ## 待你确认
 
-1. 如需下一步：是否要基于“最终设定”再生成一套带眼镜的表情表（3x3）？
+1. 如需下一步：要不要补一套「无眼镜」近景表情表（同样 4~9 格）？

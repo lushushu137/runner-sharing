@@ -1,16 +1,26 @@
 {
   "characterId": "char001",
+  "displayName": "小悠",
   "lockedAt": "2026-02-14",
   "style": "pixel-cute",
-  "identityAnchor": "master_v005_pixelcute_bangswispy_blushlighter.jpg",
-  "master": "hoodie_variants_v011_03_graphite.jpg",
-  "turnaround": "turnaround_v012_graphite_final.jpg",
-  "masterNoGlasses": "master_v008_fullbody_shorts_bangslonger.jpg",
-  "turnaroundNoGlasses": "turnaround_v008_fullbody_shorts_bangslonger.jpg",
+  "identityAnchor": "master_v008_fullbody_shorts_bangslonger.jpg",
+  "master": "master_v008_fullbody_shorts_bangslonger.jpg",
+  "turnaround": "turnaround_v008_fullbody_shorts_bangslonger.jpg",
+  "settei": "settei_v013_xiaoyou.png",
+  "states": {
+    "glasses": {
+      "expressions": "glasses_expressions_v013_xiaoyou.png",
+      "notes": "戴眼镜是人物状态：只需要近景表情/设定参考，不作为默认全身形象。"
+    }
+  },
+  "legacy": {
+    "fullbodyWithGlassesMaster": "hoodie_variants_v011_03_graphite.jpg",
+    "fullbodyWithGlassesTurnaround": "turnaround_v012_graphite_final.jpg"
+  },
   "proportionReference": "master_v008_fullbody_shorts_bangslonger.jpg",
   "notes": {
-    "glasses": "round thin rim (variant #1)",
-    "noGlasses": "use v008 as canonical proportion baseline",
+    "baseline": "v008 无眼镜 master 是核心人物形象，后续所有人物相关素材生成以此为基准。",
+    "glasses": "round thin rim (variant #1) — state only",
     "bangs": "longest strand reaches ~half lens height",
     "outfit": "graphite hoodie + baggy shorts + white sneakers",
     "status": "locked"

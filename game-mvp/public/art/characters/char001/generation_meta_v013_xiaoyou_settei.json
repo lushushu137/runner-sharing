@@ -1,0 +1,52 @@
+{
+  "version": "v013",
+  "characterId": "char001",
+  "displayName": "小悠",
+  "baseline": {
+    "master": "master_v008_fullbody_shorts_bangslonger.jpg",
+    "expressionsCrop": [
+      360,
+      56,
+      680,
+      376
+    ]
+  },
+  "generated": {
+    "glassesExpressions": "glasses_expressions_v013_xiaoyou.png",
+    "settei": "settei_v013_xiaoyou.png"
+  },
+  "method": "Deterministic composition from v008 baseline + pixel-level edits (nearest-neighbor) for glasses state expressions (close-up crop).",
+  "params": {
+    "scale": 8,
+    "grid": 40,
+    "cellPx": 320,
+    "gapPx": 32,
+    "lensCenters": {
+      "left": [
+        14,
+        21
+      ],
+      "right": [
+        23,
+        21
+      ]
+    },
+    "lensRadius": 4,
+    "mouthAnchor": [
+      16,
+      27
+    ],
+    "expressions": [
+      "neutral",
+      "smile",
+      "sad",
+      "surprised"
+    ],
+    "expressionNotes": {
+      "neutral": "glasses on, unchanged face",
+      "smile": "bigger smile + blush",
+      "sad": "frown + tear",
+      "surprised": "open mouth + sweat drop"
+    }
+  }
+}
