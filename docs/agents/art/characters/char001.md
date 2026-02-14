@@ -33,12 +33,12 @@
   `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
 - 核心基准 Turnaround（无眼镜）：  
   `game-mvp/public/art/characters/char001/turnaround_v008_fullbody_shorts_bangslonger.jpg`
-- 无眼镜：近景表情（4 格）：  
-  `game-mvp/public/art/characters/char001/expressions_v014_xiaoyou_noglasses.png`
-- 设定图（基准全身 + 无眼镜表情 + 眼镜状态表情）：  
-  `game-mvp/public/art/characters/char001/settei_v014_xiaoyou.png`
-- 眼镜状态：近景表情（4 格）：  
-  `game-mvp/public/art/characters/char001/glasses_expressions_v013_xiaoyou.png`
+- 无眼镜：近景表情（无表情 / neutral）：  
+  `game-mvp/public/art/characters/char001/expression_neutral_v015_xiaoyou_noglasses.png`
+- 眼镜状态：近景表情（无表情 / neutral）：  
+  `game-mvp/public/art/characters/char001/expression_neutral_v015_xiaoyou_glasses.png`
+- 设定图（基准全身 + 两种状态“无表情”）：  
+  `game-mvp/public/art/characters/char001/settei_v015_xiaoyou.png`
 
 ### v002（像素风，推荐用于游戏）
 
@@ -159,21 +159,22 @@
 
 ### v013（小悠设定图：v008 基准 + 眼镜状态表情）
 
-- 设定图（基准全身 + 眼镜状态表情）：  
-  `game-mvp/public/art/characters/char001/settei_v013_xiaoyou.png`
-- 眼镜状态表情（4 格）：  
-  `game-mvp/public/art/characters/char001/glasses_expressions_v013_xiaoyou.png`
-- Meta（生成参数记录）：  
-  `game-mvp/public/art/characters/char001/generation_meta_v013_xiaoyou_settei.json`
+> 已废弃：表情不合适，相关资产已删除（仅保留“无表情”版本）。
 
 ### v014（补齐：无眼镜表情 + 设定图内同时展示两种状态）
 
-- 无眼镜表情（4 格）：  
-  `game-mvp/public/art/characters/char001/expressions_v014_xiaoyou_noglasses.png`
-- 设定图（基准全身 + 无眼镜表情 + 眼镜状态表情）：  
-  `game-mvp/public/art/characters/char001/settei_v014_xiaoyou.png`
+> 已废弃：表情不合适，相关资产已删除（仅保留“无表情”版本）。
+
+### v015（当前：仅保留两种状态的“无表情”）
+
+- 无眼镜无表情：  
+  `game-mvp/public/art/characters/char001/expression_neutral_v015_xiaoyou_noglasses.png`
+- 戴眼镜无表情（沿用已确认眼镜版本）：  
+  `game-mvp/public/art/characters/char001/expression_neutral_v015_xiaoyou_glasses.png`
+- 设定图（基准全身 + 两种状态无表情）：  
+  `game-mvp/public/art/characters/char001/settei_v015_xiaoyou.png`
 - Meta：  
-  `game-mvp/public/art/characters/char001/generation_meta_v014_xiaoyou_settei.json`
+  `game-mvp/public/art/characters/char001/generation_meta_v015_xiaoyou_settei_neutral.json`
 
 ### v001（非像素风，概念对照用）
 

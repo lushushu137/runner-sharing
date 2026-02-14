@@ -1,0 +1,24 @@
+{
+  "version": "v015",
+  "characterId": "char001",
+  "displayName": "小悠",
+  "baseline": {
+    "master": "master_v008_fullbody_shorts_bangslonger.jpg",
+    "turnaround": "turnaround_v008_fullbody_shorts_bangslonger.jpg"
+  },
+  "expressions": {
+    "noGlassesNeutral": "expression_neutral_v015_xiaoyou_noglasses.png",
+    "glassesNeutral": "expression_neutral_v015_xiaoyou_glasses.png",
+    "crop": [
+      360,
+      56,
+      680,
+      376
+    ]
+  },
+  "settei": {
+    "file": "settei_v015_xiaoyou.png",
+    "layout": "fullbody + noGlassesNeutral + glassesNeutral"
+  },
+  "notes": "按你的指示：仅保留无表情（无眼镜）与无表情（戴眼镜）两种状态，其它表情全部删除。"
+}

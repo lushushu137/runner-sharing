@@ -6,11 +6,11 @@
   "identityAnchor": "master_v008_fullbody_shorts_bangslonger.jpg",
   "master": "master_v008_fullbody_shorts_bangslonger.jpg",
   "turnaround": "turnaround_v008_fullbody_shorts_bangslonger.jpg",
-  "expressions": "expressions_v014_xiaoyou_noglasses.png",
-  "settei": "settei_v014_xiaoyou.png",
+  "expressions": "expression_neutral_v015_xiaoyou_noglasses.png",
+  "settei": "settei_v015_xiaoyou.png",
   "states": {
     "glasses": {
-      "expressions": "glasses_expressions_v013_xiaoyou.png",
+      "expressions": "expression_neutral_v015_xiaoyou_glasses.png",
       "notes": "戴眼镜是人物状态：只需要近景表情/设定参考，不作为默认全身形象。"
     }
   },
