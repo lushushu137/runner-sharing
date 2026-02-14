@@ -33,6 +33,17 @@
 - 生成元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v002_pixel.json`
 
+### v003（像素风 + 更可爱，更贴近参考图）
+
+- Master（前视全身，身份锚点）：  
+  `game-mvp/public/art/characters/char001/master_v003_pixelcute.jpg`
+- Turnaround（正/3-4/侧/背 全身）：  
+  `game-mvp/public/art/characters/char001/turnaround_v003_pixelcute.jpg`
+- Expressions（3x3 表情表）：  
+  `game-mvp/public/art/characters/char001/expressions_v003_pixelcute.jpg`
+- 生成元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v003_pixelcute.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -41,5 +52,5 @@
 
 ## 待你确认
 
-1. v002 的像素密度与质感是否符合你要的“像素风”（还是需要更粗像素/更低色数）？
+1. v003 是否已经达到你参考图的“可爱 + 像素味”？（如仍不够，我会继续把像素密度再降一档、色板再收紧）
 2. 卫衣轮廓是否需要更“宅/宽松”（更软塌）还是更“利落”？
