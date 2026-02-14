@@ -33,8 +33,10 @@
   `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
 - 核心基准 Turnaround（无眼镜）：  
   `game-mvp/public/art/characters/char001/turnaround_v008_fullbody_shorts_bangslonger.jpg`
-- 设定图（基准全身 + 眼镜状态表情）：  
-  `game-mvp/public/art/characters/char001/settei_v013_xiaoyou.png`
+- 无眼镜：近景表情（4 格）：  
+  `game-mvp/public/art/characters/char001/expressions_v014_xiaoyou_noglasses.png`
+- 设定图（基准全身 + 无眼镜表情 + 眼镜状态表情）：  
+  `game-mvp/public/art/characters/char001/settei_v014_xiaoyou.png`
 - 眼镜状态：近景表情（4 格）：  
   `game-mvp/public/art/characters/char001/glasses_expressions_v013_xiaoyou.png`
 
@@ -164,6 +166,15 @@
 - Meta（生成参数记录）：  
   `game-mvp/public/art/characters/char001/generation_meta_v013_xiaoyou_settei.json`
 
+### v014（补齐：无眼镜表情 + 设定图内同时展示两种状态）
+
+- 无眼镜表情（4 格）：  
+  `game-mvp/public/art/characters/char001/expressions_v014_xiaoyou_noglasses.png`
+- 设定图（基准全身 + 无眼镜表情 + 眼镜状态表情）：  
+  `game-mvp/public/art/characters/char001/settei_v014_xiaoyou.png`
+- Meta：  
+  `game-mvp/public/art/characters/char001/generation_meta_v014_xiaoyou_settei.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -172,4 +183,4 @@
 
 ## 待你确认
 
-1. 如需下一步：要不要补一套「无眼镜」近景表情表（同样 4~9 格）？
+1. 如需下一步：无眼镜/眼镜两套表情要不要扩到 9 格（3x3）？

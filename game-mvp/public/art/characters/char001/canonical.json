@@ -6,7 +6,8 @@
   "identityAnchor": "master_v008_fullbody_shorts_bangslonger.jpg",
   "master": "master_v008_fullbody_shorts_bangslonger.jpg",
   "turnaround": "turnaround_v008_fullbody_shorts_bangslonger.jpg",
-  "settei": "settei_v013_xiaoyou.png",
+  "expressions": "expressions_v014_xiaoyou_noglasses.png",
+  "settei": "settei_v014_xiaoyou.png",
   "states": {
     "glasses": {
       "expressions": "glasses_expressions_v013_xiaoyou.png",
