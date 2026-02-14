@@ -1,0 +1,14 @@
+{
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "turnaroundPrompt": "Use the provided reference images ONLY for style inspiration (line weight, shading, palette). Do NOT copy any specific character, clothing design, or composition from them. Create an original character. 2D narrative game character design sheet, clean line art, soft shading, subtle texture, simple background. No text, no watermark, no logo.\nCharacter: female, 22 years old. Black short straight hair with blunt bangs. Pale skin. Slim build. Oversized hoodie (loose fit). Mood: melancholic, slightly blank and cute. Keep proportions realistic-stylized, not chibi.\nGenerate ONE character turnaround sheet image with 4 panels inside the same image: full-body front view (neutral), full-body 3/4 view, full-body side view, full-body back view. Same outfit and proportions across all views. Plain light background with faint panel separators.",
+  "expressionsPrompt": "Use the provided reference images ONLY for style inspiration (line weight, shading, palette). Do NOT copy any specific character, clothing design, or composition from them. Create an original character. 2D narrative game character design sheet, clean line art, soft shading, subtle texture, simple background. No text, no watermark, no logo.\nCharacter: female, 22 years old. Black short straight hair with blunt bangs. Pale skin. Slim build. Oversized hoodie (loose fit). Mood: melancholic, slightly blank and cute. Keep proportions realistic-stylized, not chibi.\nGenerate ONE facial expression sheet image: 3x3 grid of head-and-shoulders portraits. Same camera (front), same hairstyle, same hoodie collar, same lighting. Expressions (9): neutral, tired, anxious, depressed, irritated, guilty, blank stare, soft smile, overwhelmed. No text.",
+  "outputs": {
+    "turnaround": "turnaround_v001.jpg",
+    "expressions": "expressions_v001.jpg"
+  }
+}
