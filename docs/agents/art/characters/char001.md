@@ -24,14 +24,22 @@
 
 > 这些文件已放入 `game-mvp/public/`，部署后可直接通过 URL 访问。
 
+### v002（像素风，推荐用于游戏）
+
 - Turnaround（正/3-4/侧/背 全身）：  
-  `game-mvp/public/art/characters/char001/turnaround_v001.jpg`
+  `game-mvp/public/art/characters/char001/turnaround_v002_pixel.jpg`
 - Expressions（3x3 表情表）：  
-  `game-mvp/public/art/characters/char001/expressions_v001.jpg`
+  `game-mvp/public/art/characters/char001/expressions_v002_pixel.jpg`
 - 生成元信息（prompt + refs，不含 key）：  
-  `game-mvp/public/art/characters/char001/generation_meta_v001.json`
+  `game-mvp/public/art/characters/char001/generation_meta_v002_pixel.json`
+
+### v001（非像素风，概念对照用）
+
+- Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
+- Expressions：`game-mvp/public/art/characters/char001/expressions_v001.jpg`
+- Meta：`game-mvp/public/art/characters/char001/generation_meta_v001.json`
 
 ## 待你确认
 
-1. 这版角色的“忧郁呆萌”方向是否对？
+1. v002 的像素密度与质感是否符合你要的“像素风”（还是需要更粗像素/更低色数）？
 2. 卫衣轮廓是否需要更“宅/宽松”（更软塌）还是更“利落”？

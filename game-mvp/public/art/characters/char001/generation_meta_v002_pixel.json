@@ -1,0 +1,15 @@
+{
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "identityReference": "turnaround_v001.jpg",
+  "turnaroundPrompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as true 2D pixel art (sprite/sheet quality): crisp pixels, no anti-aliasing, no smooth gradients. Use limited palette (<= 24 colors), dithering allowed. One-pixel outlines are okay. Plain background, faint panel separators only. No text, no watermark, no logo.\nCharacter: female, 22. Black short straight hair with blunt bangs. Pale skin. Slim build. Oversized hoodie. Mood: melancholic, slightly blank and cute. Keep the same identity as the provided identity image.\nTask: Re-render the SAME character from the identity reference into pixel art style. Generate ONE image that is a character turnaround sheet with 4 panels: full-body front (neutral), 3/4, side, back. Each panel should look like a 128x256 pixel sprite scaled up 4x with nearest-neighbor (visible pixel grid).",
+  "expressionsPrompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as true 2D pixel art (sprite/sheet quality): crisp pixels, no anti-aliasing, no smooth gradients. Use limited palette (<= 24 colors), dithering allowed. One-pixel outlines are okay. Plain background, faint panel separators only. No text, no watermark, no logo.\nCharacter: female, 22. Black short straight hair with blunt bangs. Pale skin. Slim build. Oversized hoodie. Mood: melancholic, slightly blank and cute. Keep the same identity as the provided identity image.\nTask: Generate ONE pixel-art facial expression sheet: 3x3 grid, head-and-shoulders, front view. Same lighting and hairstyle and hoodie collar. Expressions (9): neutral, tired, anxious, depressed, irritated, guilty, blank stare, soft smile, overwhelmed. Each cell looks like a 64x64 pixel portrait scaled up 6x with nearest-neighbor. No text.",
+  "outputs": {
+    "turnaround": "turnaround_v002_pixel.jpg",
+    "expressions": "expressions_v002_pixel.jpg"
+  }
+}
