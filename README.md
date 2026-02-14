@@ -12,3 +12,4 @@
 - 零代码导演模式（最高优先）：`docs/organization/no-code-director-mode.md`
 - 共享 Skills：`docs/skills/README.md`
 - 职能目录：`docs/agents/README.md`
+- 角色一致性模板（Nano Banana）：`docs/agents/art/character-dna-template.md`

@@ -33,6 +33,11 @@
 - 每轮资产必须有命名规则
 - 明确可替换与必须锁定的资产
 
+## 快速启动模板
+
+- 角色一致性卡：`docs/agents/art/character-dna-template.md`
+- Nano Banana 提示词模板：`docs/agents/art/nano-banana-prompt-template.md`
+
 ## 本周进度
 
 - 待更新

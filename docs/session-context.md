@@ -30,6 +30,9 @@
 - 职能目录：`docs/agents/README.md`
 - 8 个角色目录已创建并写入职责说明：
   - architect / narrative / level / gameplay / art / audio / qa / release
+- 美术一致性模板已就位：
+  - `docs/agents/art/character-dna-template.md`
+  - `docs/agents/art/nano-banana-prompt-template.md`
 
 ## 2) 你要的核心流程（阶段 A）
 
