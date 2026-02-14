@@ -44,6 +44,17 @@
 - 生成元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v003_pixelcute.json`
 
+### v004（v003 基础上：肩长头发 + 更柔和刘海 + 淡腮红）
+
+- Master（前视全身，身份锚点）：  
+  `game-mvp/public/art/characters/char001/master_v004_pixelcute_shoulderblush.jpg`
+- Turnaround（正/3-4/侧/背 全身）：  
+  `game-mvp/public/art/characters/char001/turnaround_v004_pixelcute_shoulderblush.jpg`
+- Expressions（3x3 表情表）：  
+  `game-mvp/public/art/characters/char001/expressions_v004_pixelcute_shoulderblush.jpg`
+- 生成元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v004_pixelcute_shoulderblush.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -52,5 +63,4 @@
 
 ## 待你确认
 
-1. v003 是否已经达到你参考图的“可爱 + 像素味”？（如仍不够，我会继续把像素密度再降一档、色板再收紧）
-2. 卫衣轮廓是否需要更“宅/宽松”（更软塌）还是更“利落”？
+1. v004 的“肩长头发 + 淡腮红 + 不呆板刘海”是否已经到位？
