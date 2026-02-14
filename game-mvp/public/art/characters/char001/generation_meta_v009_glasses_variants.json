@@ -1,0 +1,45 @@
+{
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "anchors": {
+    "identity": "master_v005_pixelcute_bangswispy_blushlighter.jpg",
+    "fullbody": "master_v008_fullbody_shorts_bangslonger.jpg"
+  },
+  "styleGuide": "Here is a summary of the pixel-art style from the reference images:\n\n*   **Cute Proportions:** Characters feature large, expressive eyes and small, simple mouths, creating a charming, chibi-like anime aesthetic.\n*   **Consistent Outline:** A dark, single-pixel outline defines all main elements, giving a clean and distinct look.\n*   **Limited Palette:** The color palette is restricted, using only a few shades for each area (hair, skin, clothing) to create depth and form.\n*   **Blocky Shading:** Simple, blocky shading is used to define volume and shadows, avoiding complex gradients.\n*   **Pixel Highlights:** Small, single-pixel highlights are used effectively on eyes and hair to add shine and life.\n*   **Retro Charm:** The overall style is clean and charming, evoking a classic retro game feel.",
+  "panelMappingLeftToRight": [
+    {
+      "index": 1,
+      "shape": "round",
+      "rim": "thin",
+      "color": "dark gray/black"
+    },
+    {
+      "index": 2,
+      "shape": "round",
+      "rim": "thick",
+      "color": "dark gray/black"
+    },
+    {
+      "index": 3,
+      "shape": "square",
+      "rim": "thin",
+      "color": "dark gray/black"
+    },
+    {
+      "index": 4,
+      "shape": "square",
+      "rim": "thick",
+      "color": "dark gray/black"
+    }
+  ],
+  "notes": {
+    "bangs": "slightly longer than v008 (overlap upper eye edge 1-2 px)",
+    "palette": "slightly brighter/warmer than anchor B"
+  },
+  "prompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients. Chibi/kawaii proportions: large head, big expressive eyes, small body. Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline. Plain pastel background. No text, no watermark, no logo.\n[REFERENCE STYLE NOTES]\nHere is a summary of the pixel-art style from the reference images:\n\n*   **Cute Proportions:** Characters feature large, expressive eyes and small, simple mouths, creating a charming, chibi-like anime aesthetic.\n*   **Consistent Outline:** A dark, single-pixel outline defines all main elements, giving a clean and distinct look.\n*   **Limited Palette:** The color palette is restricted, using only a few shades for each area (hair, skin, clothing) to create depth and form.\n*   **Blocky Shading:** Simple, blocky shading is used to define volume and shadows, avoiding complex gradients.\n*   **Pixel Highlights:** Small, single-pixel highlights are used effectively on eyes and hair to add shine and life.\n*   **Retro Charm:** The overall style is clean and charming, evoking a classic retro game feel.\n\nYou are given two anchors: Anchor A = identity (face/hair vibe). Anchor B = fullbody (outfit shorts + sneakers + proportions). Keep the face identity, hair silhouette, and hoodie design of Anchor A. Keep the fullbody proportions and outfit of Anchor B (hoodie + baggy shorts + white sneakers). Do not redesign the character.\nBangs update: make bangs a tiny bit longer than Anchor B: fringe strands should pass the upper edge of the eyes slightly (about 1-2 pixels overlap), still wispy and cute, not blocking the eyes too much.\nColor update: current outfit feels too dull. Keep the same design but brighten and soften the palette slightly: hoodie and shorts should be a bit lighter and warmer (less muddy), with clear pixel shading. Sneakers stay white.\nAdd glasses variants. Generate ONE comparison sheet image with 4 vertical panels (left to right 1-4). All panels show the same full-body FRONT view, same pose, same hair, same hoodie, same shorts, same sneakers. Only glasses change per panel. No text labels. Panel 1: round frame, thin rim. Panel 2: round frame, thick rim. Panel 3: square frame, thin rim. Panel 4: square frame, thick rim. Frame color should be dark gray/black. Make glasses cute and proportionate; do not hide the eyes.\nTechnical: each panel looks like a 64x160 pixel sprite scaled up 8x with nearest-neighbor. Faint panel separators allowed.",
+  "output": "glasses_variants_v009_sheet.jpg"
+}

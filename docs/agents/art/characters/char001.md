@@ -97,6 +97,17 @@
 - 元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v008_shorts.json`
 
+### v009（眼镜款式试穿：4种 + 刘海再长一点点 + 颜色更明快）
+
+> 说明：这是 4 面板对比图（从左到右 1~4），仅眼镜不同。
+>
+> 1) 圆框细边  2) 圆框粗边  3) 方框细边  4) 方框粗边
+
+- Glasses variants sheet（左->右 1~4）：  
+  `game-mvp/public/art/characters/char001/glasses_variants_v009_sheet.jpg`
+- 元信息（包含 1~4 映射）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v009_glasses_variants.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -105,4 +116,4 @@
 
 ## 待你确认
 
-1. 是否确认 v008 作为角色全身标准设定（宽松短裤 + 刘海更长一点点）？
+1. 请选择 v009 的眼镜款式（从左到右 1~4），我会把该眼镜固化并重生成一套完整转身图。
