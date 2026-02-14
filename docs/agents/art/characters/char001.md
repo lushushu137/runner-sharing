@@ -66,6 +66,17 @@
 - 生成元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v005_pixelcute_bangswispy_blushlighter.json`
 
+### v006（全身一致性修复：新增工装裤 + 白鞋，并重生成转身图匹配 Master 气质）
+
+> 说明：保留你认可的 v005 Master 作为“脸/发型/气质”锚点；v006 生成的是“全身可用”的 master + 4视图转身。
+
+- Fullbody Master（前视全身：宽松工装裤 + 白色运动鞋）：  
+  `game-mvp/public/art/characters/char001/master_v006_fullbody_cargopants_sneakers.jpg`
+- Turnaround（正/3-4/侧/背 全身，与 fullbody master 一致）：  
+  `game-mvp/public/art/characters/char001/turnaround_v006_fullbody_cargopants_sneakers.jpg`
+- 生成元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v006_fullbody_cargopants_sneakers.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -74,4 +85,4 @@
 
 ## 待你确认
 
-1. v005 的“刘海更碎更长 + 腮红更淡”是否已经到位？
+1. v006 这套“工装裤 + 白鞋”的全身与转身是否可以作为游戏内标准设定？
