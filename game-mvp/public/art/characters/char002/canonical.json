@@ -4,10 +4,17 @@
   "species": "cat",
   "style": "pixel-cute",
   "lockedAt": "2026-02-14",
-  "master": "master_v002_kucha.png",
-  "settei": "settei_v002_kucha.png",
+  "master": "master_v003_kucha.png",
+  "settei": "settei_v003_kucha.png",
+  "refs": {
+    "userProvided": [
+      "refs/ref_pinterest_01.jpg",
+      "refs/ref_pinterest_02.jpg",
+      "refs/ref_pinterest_03.jpg"
+    ]
+  },
   "notes": {
-    "description": "silver tabby American shorthair + white (based on user photo)",
+    "description": "silver tabby American shorthair + white (based on user photo), style tuned to provided pixel-cat references",
     "pose": "sitting (slight 3/4)",
     "status": "draft"
   }

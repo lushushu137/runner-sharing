@@ -6,7 +6,7 @@
 - 物种：猫
 - 花色关键词：胖胖美短（银灰虎斑）+ 加白（基于你提供的真实照片）
 - 体型：圆润、短腿、肚子大（抱起来很软的那种）
-- 版本状态：v002 当前（以照片为准，可继续微调）
+- 版本状态：v003 当前（照片外形 + 你给的像素风参考图风格）
 
 ## 一致性锁定点（DNA 摘要）
 
@@ -21,12 +21,20 @@
 
 - Canonical mapping：  
   `game-mvp/public/art/characters/char002/canonical.json`
-- Master（全身基准，v002）：  
-  `game-mvp/public/art/characters/char002/master_v002_kucha.png`
-- Settei（设定图：全身 + 近景，v002）：  
-  `game-mvp/public/art/characters/char002/settei_v002_kucha.png`
-- Meta（v002，记录调色板/参数；参考为“用户照片描述”）：  
-  `game-mvp/public/art/characters/char002/generation_meta_v002_kucha_based_on_photo.json`
+- Master（全身基准，v003）：  
+  `game-mvp/public/art/characters/char002/master_v003_kucha.png`
+- Settei（设定图：全身 + 近景，v003）：  
+  `game-mvp/public/art/characters/char002/settei_v003_kucha.png`
+- Meta（v003，记录调色板/参数 + 风格参考图链接）：  
+  `game-mvp/public/art/characters/char002/generation_meta_v003_kucha_style_refs.json`
+
+### 风格参考图（你提供）
+
+> 仅作风格参考，不拷贝具体构图/角色。
+
+- `game-mvp/public/art/characters/char002/refs/ref_pinterest_01.jpg`
+- `game-mvp/public/art/characters/char002/refs/ref_pinterest_02.jpg`
+- `game-mvp/public/art/characters/char002/refs/ref_pinterest_03.jpg`
 
 ### 历史版本
 
@@ -34,6 +42,11 @@
   `game-mvp/public/art/characters/char002/master_v001_kucha.png`  
   `game-mvp/public/art/characters/char002/settei_v001_kucha.png`  
   `game-mvp/public/art/characters/char002/generation_meta_v001_kucha.json`
+
+- v002（照片外形版，不再作为当前基准）：  
+  `game-mvp/public/art/characters/char002/master_v002_kucha.png`  
+  `game-mvp/public/art/characters/char002/settei_v002_kucha.png`  
+  `game-mvp/public/art/characters/char002/generation_meta_v002_kucha_based_on_photo.json`
 
 ## 待你确认（给我一句话就行）
 
