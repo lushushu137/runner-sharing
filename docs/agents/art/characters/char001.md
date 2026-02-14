@@ -117,6 +117,19 @@
 - 元信息（prompt + refs，不含 key）：  
   `game-mvp/public/art/characters/char001/generation_meta_v010_glasses1_bangs_longer.json`
 
+### v011（卫衣颜色方案：黑/深灰 5 张可选）
+
+> 说明：5 张单图（正面全身），仅卫衣颜色不同，其它完全一致。
+
+1) pure black  
+2) charcoal  
+3) graphite  
+4) dark slate  
+5) deep warm gray
+
+- 元信息（含颜色hex与文件名映射）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v011_hoodie_variants.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -125,4 +138,4 @@
 
 ## 待你确认
 
-1. 是否确认 v010 作为角色全身最终设定（眼镜1 + 刘海更长）？
+1. 请选择 v011 的卫衣颜色（1~5），我会把该颜色固化并更新最终设定图/转身图。
