@@ -3,6 +3,7 @@
   "displayName": "小悠",
   "lockedAt": "2026-02-14",
   "style": "pixel-cute",
+  "styleLock": "../../style/style_lock_xiaoyou_pixel_v001.json",
   "identityAnchor": "master_v008_fullbody_shorts_bangslonger.jpg",
   "master": "master_v008_fullbody_shorts_bangslonger.jpg",
   "turnaround": "turnaround_v008_fullbody_shorts_bangslonger.jpg",

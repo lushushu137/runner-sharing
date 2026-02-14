@@ -5,6 +5,58 @@
 
 ---
 
+## Pixel Art 版本（小悠画风一致性：Style Lock v001）
+
+> 适用：角色像素立绘、转身、表情、道具/UI 像素图。  
+> 画风锁定文件：`game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json`  
+> 说明：后续所有游戏素材默认使用此像素画风。
+
+### 1) 固定块（每次都复制，不要改）
+
+```text
+[STYLE LOCK — XiaoYou Pixel v001]
+Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition.
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients.
+Chibi/kawaii proportions: large head, big expressive eyes, small body.
+Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline.
+Plain pastel background. No text, no watermark, no logo.
+
+[OUTPUT LOCK]
+1024x1024. Keep the subject centered with clean silhouette.
+```
+
+### 2) 变量块（只改一项）
+
+#### A. 生成新角色（同画风）
+
+```text
+[VARIABLE]
+Create a NEW character (do not copy XiaoYou’s identity) but match XiaoYou Pixel v001 style.
+Subject description: <species / outfit / key markings>.
+Pose: <front / 3-4 / sitting / standing>.
+```
+
+#### B. 同角色状态切换（表情/动作/视角）
+
+```text
+[VARIABLE]
+Character identity lock: use the approved master sprite as the ONLY identity anchor.
+Change only: <expression OR pose OR view>.
+Everything else unchanged.
+```
+
+### 3) 负面块（每次都带）
+
+```text
+[NEGATIVE]
+anti-aliasing, blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture,
+text, watermark, logo, signature, different character, redesign face/body proportion, random outfit changes
+```
+
+---
+
+## 插画/线稿版本（保留：非像素需求时使用）
+
 ## 1) 固定块（每次都复制，不要改）
 
 ```text

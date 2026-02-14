@@ -29,6 +29,8 @@
 
 - Canonical mapping（给引擎/内容引用用）：  
   `game-mvp/public/art/characters/char001/canonical.json`
+- 画风锁定（后续所有游戏素材统一使用）：  
+  `game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json`
 - 核心基准 Master（无眼镜 / graphite 衣服 / 头身比基准）：  
   `game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg`
 - 核心基准 Turnaround（无眼镜）：  

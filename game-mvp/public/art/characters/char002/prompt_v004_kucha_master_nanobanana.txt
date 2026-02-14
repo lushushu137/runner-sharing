@@ -1,0 +1,24 @@
+Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition.
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients.
+Chibi/kawaii proportions: large head, big expressive eyes, small body.
+Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline.
+Plain pastel background. No text, no watermark, no logo.
+
+Task: Create a NEW character sprite (NOT XiaoYou). Character: Kucha, a chubby American Shorthair cat.
+
+Appearance (must match):
+- Silver tabby coat with clear dark stripes (forehead \"M\" marking, stripes on back, rings on tail)
+- White muzzle, white chest, big white belly, white paws
+- Round chubby face, small pink nose, short whiskers
+- Cute big cat eyes (slightly almond), olive/greenish iris with a small pixel highlight
+
+Pose & composition:
+- Sitting, slightly 3/4 view (subtle turn), tail curled to the right side
+- Very round body (fat, soft), short legs/paws
+- Centered on canvas, clean silhouette
+
+Output requirements:
+- Generate ONE image, 1024x1024, plain pastel pink background
+- Must look like a low-res sprite (e.g. 64x64~96x96) scaled up with nearest-neighbor
+- No extra props, no text, no watermark
+

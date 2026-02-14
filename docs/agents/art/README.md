@@ -37,6 +37,7 @@
 
 - 角色一致性卡：`docs/agents/art/character-dna-template.md`
 - Nano Banana 提示词模板：`docs/agents/art/nano-banana-prompt-template.md`
+- 画风锁定（小悠 Pixel v001）：`docs/agents/art/style-locks/xiaoyou-pixel-v001.md`
 
 ## 本周进度
 

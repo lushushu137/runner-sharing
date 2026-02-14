@@ -3,6 +3,7 @@
   "displayName": "Kucha",
   "species": "cat",
   "style": "pixel-cute",
+  "styleLock": "../../style/style_lock_xiaoyou_pixel_v001.json",
   "lockedAt": "2026-02-14",
   "master": "master_v003_kucha.png",
   "settei": "settei_v003_kucha.png",
@@ -21,6 +22,7 @@
   "notes": {
     "description": "silver tabby American shorthair + white (based on user photo), style tuned to provided pixel-cat references",
     "pose": "sitting (slight 3/4)",
-    "status": "draft"
+    "status": "provisional",
+    "next": "Regenerate with Nano Banana using XiaoYou style lock (see prompt_v004_kucha_master_nanobanana.txt)."
   }
 }

@@ -1,0 +1,38 @@
+{
+  "id": "style_lock_xiaoyou_pixel_v001",
+  "name": "XiaoYou Pixel-Cute v1",
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "renderLock": {
+    "medium": "true-2d-pixel-art",
+    "pixels": {
+      "crisp": true,
+      "antiAliasing": false,
+      "blur": false,
+      "gradients": false,
+      "nearestNeighborUpscale": true
+    },
+    "outline": "dark 1px outline",
+    "palette": "limited palette (<= 20 colors), 2-3 shade cell shading",
+    "background": "plain pastel background",
+    "forbidden": [
+      "text",
+      "watermark",
+      "logo",
+      "photoreal",
+      "painterly",
+      "heavy texture noise"
+    ]
+  },
+  "spriteLock": {
+    "targetLook": "looks like 64x160 pixels scaled up 8x",
+    "characterProportion": "chibi/kawaii (large head, small body)"
+  },
+  "promptFixedBlock": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition. Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients. Chibi/kawaii proportions: large head, big expressive eyes, small body. Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline. Plain pastel background. No text, no watermark, no logo.",
+  "promptNegative": "anti-aliasing, blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture, text, watermark, logo, signature"
+}
+

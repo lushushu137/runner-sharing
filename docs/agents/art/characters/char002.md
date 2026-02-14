@@ -6,7 +6,7 @@
 - 物种：猫
 - 花色关键词：胖胖美短（银灰虎斑）+ 加白（基于你提供的真实照片）
 - 体型：圆润、短腿、肚子大（抱起来很软的那种）
-- 版本状态：v003 当前（照片外形 + 你给的像素风参考图风格）
+- 版本状态：v003 临时预览（非 Nano Banana）；按最新要求将切到 **v004（Nano Banana + 小悠画风锁定）**
 
 ## 一致性锁定点（DNA 摘要）
 
@@ -21,12 +21,19 @@
 
 - Canonical mapping：  
   `game-mvp/public/art/characters/char002/canonical.json`
+- 画风锁定（与小悠一致）：  
+  `game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json`
 - Master（全身基准，v003）：  
   `game-mvp/public/art/characters/char002/master_v003_kucha.png`
 - Settei（设定图：全身 + 近景，v003）：  
   `game-mvp/public/art/characters/char002/settei_v003_kucha.png`
 - Meta（v003，记录调色板/参数 + 风格参考图链接）：  
   `game-mvp/public/art/characters/char002/generation_meta_v003_kucha_style_refs.json`
+
+### v004（计划：Nano Banana 出图，画风与小悠一致）
+
+- 目标：用 **Nano Banana** 生成 Kucha（并把它作为后续所有猫相关素材的身份锚点）
+- 画风：严格使用“小悠 Pixel-Cute v001”画风锁定
 
 ### 风格参考图（你提供）
 
