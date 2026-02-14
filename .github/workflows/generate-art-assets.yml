@@ -43,6 +43,7 @@ jobs:
   generate-dispatch:
     if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    environment: Preview
     permissions:
       contents: write
 
@@ -228,6 +229,7 @@ jobs:
     # Trigger by pushing a commit with marker in message, e.g. "[generate-kucha]"
     if: github.event_name == 'push' && github.actor != 'github-actions[bot]' && contains(github.event.head_commit.message, '[generate-kucha]')
     runs-on: ubuntu-latest
+    environment: Preview
     permissions:
       contents: write
 
