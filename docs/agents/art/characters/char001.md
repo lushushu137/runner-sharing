@@ -108,6 +108,15 @@
 - 元信息（包含 1~4 映射）：  
   `game-mvp/public/art/characters/char001/generation_meta_v009_glasses_variants.json`
 
+### v010（最终候选：选定眼镜 1 + 刘海更长（最长到镜片中部）+ 颜色更明快）
+
+- Master（前视全身）：  
+  `game-mvp/public/art/characters/char001/master_v010_shorts_glasses_round_thin_bangslonger.jpg`
+- Turnaround（正/3-4/侧/背 全身）：  
+  `game-mvp/public/art/characters/char001/turnaround_v010_shorts_glasses_round_thin_bangslonger.jpg`
+- 元信息（prompt + refs，不含 key）：  
+  `game-mvp/public/art/characters/char001/generation_meta_v010_glasses1_bangs_longer.json`
+
 ### v001（非像素风，概念对照用）
 
 - Turnaround：`game-mvp/public/art/characters/char001/turnaround_v001.jpg`
@@ -116,4 +125,4 @@
 
 ## 待你确认
 
-1. 请选择 v009 的眼镜款式（从左到右 1~4），我会把该眼镜固化并重生成一套完整转身图。
+1. 是否确认 v010 作为角色全身最终设定（眼镜1 + 刘海更长）？
