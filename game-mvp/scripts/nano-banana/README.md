@@ -11,5 +11,6 @@
 ## generate-image.mjs
 
 - 读取环境变量：`GOOGLE_API_KEY`
+- 也支持从本地文件读取（不会提交）：`/workspace/.env.local` 或 `game-mvp/.env.local`
 - 输出：单张图片（从模型返回的 `inlineData`）
 

@@ -9,6 +9,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 function usage(exitCode = 0) {
   // Keep it short; this is not user-facing.
@@ -64,6 +65,44 @@ function ensureDirForFile(filePath) {
   fs.mkdirSync(dir, { recursive: true });
 }
 
+function loadDotEnvFile(filePath) {
+  if (!filePath) return;
+  if (!fs.existsSync(filePath)) return;
+  const content = fs.readFileSync(filePath, "utf8");
+  for (const rawLine of content.split(/\r?\n/)) {
+    let line = rawLine.trim();
+    if (!line || line.startsWith("#")) continue;
+    if (line.startsWith("export ")) line = line.slice("export ".length).trim();
+    const eq = line.indexOf("=");
+    if (eq <= 0) continue;
+    const key = line.slice(0, eq).trim();
+    if (!key) continue;
+    let value = line.slice(eq + 1).trim();
+    // Strip surrounding quotes.
+    if (
+      (value.startsWith('"') && value.endsWith('"')) ||
+      (value.startsWith("'") && value.endsWith("'"))
+    ) {
+      value = value.slice(1, -1);
+    }
+    if (!process.env[key]) process.env[key] = value;
+  }
+}
+
+function bootstrapEnv() {
+  // Prefer explicit env; otherwise try local dot-env files.
+  if (process.env.GOOGLE_API_KEY) return;
+
+  const scriptDir = path.dirname(fileURLToPath(import.meta.url));
+  const repoRoot = path.resolve(scriptDir, "..", "..", ".."); // /workspace
+  const gameMvpRoot = path.resolve(scriptDir, "..", ".."); // /workspace/game-mvp
+
+  loadDotEnvFile(path.join(repoRoot, ".env.local"));
+  loadDotEnvFile(path.join(repoRoot, ".env"));
+  loadDotEnvFile(path.join(gameMvpRoot, ".env.local"));
+  loadDotEnvFile(path.join(gameMvpRoot, ".env"));
+}
+
 function extractFirstInlineImage(resp) {
   const candidates = resp?.candidates ?? [];
   for (const c of candidates) {
@@ -79,6 +118,7 @@ function extractFirstInlineImage(resp) {
 }
 
 async function main() {
+  bootstrapEnv();
   const args = parseArgs(process.argv.slice(2));
   const apiKey = process.env.GOOGLE_API_KEY;
   if (!apiKey) {
