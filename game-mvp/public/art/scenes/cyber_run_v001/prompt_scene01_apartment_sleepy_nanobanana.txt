@@ -1,0 +1,28 @@
+[STYLE LOCK — Retro Cyberpunk Neon Pixel v001]
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients, NO dithering.
+Use nearest-neighbor upscale look (as if painted at low resolution, then scaled up).
+Limited palette (<= 24 colors), simple 2-3 shade cel shading, dark 1px outline for major silhouettes.
+Retro cyberpunk / neon-noir: nighttime city mood, neon lights, wet reflections.
+Neon glow must be represented with hard-edged pixel clusters (NO bloom, NO blur).
+No text, no readable letters or numbers, no watermark, no logo, no signature.
+
+[OUTPUT LOCK]
+1024x1024 (square). Leave safe margins for UI overlays.
+
+[IDENTITY ANCHORS]
+Use inline image #1 as the ONLY identity anchor for XiaoYou (keep face/hair/outfit proportions and colors consistent).
+Use inline image #2 as the ONLY identity anchor for Kucha (keep coat pattern and body proportions consistent).
+Do NOT redesign either character.
+
+[SCENE]
+Interior apartment bedroom at night, retro cyberpunk neon spill coming through a window (no readable signage outside).
+XiaoYou is lying on the bed, very sleepy and exhausted (eyes half-closed), hoodie slightly oversized.
+Kucha is next to her on the bed, prone pose, calm and sleepy.
+Composition: cozy but moody, medium-wide shot showing bed + a hint of window + a small neon reflection on the floor.
+Lighting: dark room base; neon rim light (magenta/cyan) on silhouettes; no blur, no bloom.
+Props: simple nightstand, small lamp turned off, a faint city glow through blinds (no text).
+
+[NEGATIVE]
+anti-aliasing, blur, bloom, glow blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture,
+text, letters, numbers, watermark, logo, signature, extra characters, realistic hair strands, readable signage, readable UI
+

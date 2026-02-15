@@ -1,0 +1,48 @@
+{
+  "id": "style_lock_retro_cyberpunk_pixel_v001",
+  "name": "Retro Cyberpunk Neon Pixel v1",
+  "model": "nano-banana-pro-preview",
+  "referenceImages": [],
+  "renderLock": {
+    "medium": "true-2d-pixel-art",
+    "pixels": {
+      "crisp": true,
+      "antiAliasing": false,
+      "blur": false,
+      "gradients": false,
+      "dithering": false,
+      "nearestNeighborUpscale": true
+    },
+    "outline": "dark 1px outline for major silhouettes",
+    "palette": "limited palette (<= 24 colors), 2-3 shade cel shading, neon accents on dark base",
+    "lighting": "neon glow must be represented with hard-edged pixel clusters (no bloom/blur)",
+    "environment": "retro cyberpunk / neon-noir nighttime city mood",
+    "forbidden": [
+      "text",
+      "letters",
+      "numbers",
+      "watermark",
+      "logo",
+      "signature",
+      "photoreal",
+      "painterly",
+      "heavy texture noise",
+      "anti-aliasing",
+      "blur",
+      "smooth gradients",
+      "dithering"
+    ]
+  },
+  "outputLock": {
+    "resolution": "1024x1024",
+    "framing": "square composition, keep safe margins for UI overlays",
+    "notes": "scene illustration (not plain background sprite), still true pixel art"
+  },
+  "promptFixedBlock": "[STYLE LOCK — Retro Cyberpunk Neon Pixel v001]\nRender as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients, NO dithering.\nUse nearest-neighbor upscale look (as if painted at low resolution, then scaled up).\nLimited palette (<= 24 colors), simple 2-3 shade cel shading, dark 1px outline for major silhouettes.\nRetro cyberpunk / neon-noir: nighttime city mood, neon lights, wet reflections.\nNeon glow must be represented with hard-edged pixel clusters (NO bloom, NO blur).\nNo text, no readable letters or numbers, no watermark, no logo, no signature.\n\n[OUTPUT LOCK]\n1024x1024 (square). Leave safe margins for UI overlays.",
+  "promptNegative": "anti-aliasing, blur, bloom, glow blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture, text, letters, numbers, watermark, logo, signature, illegible typography",
+  "notes": {
+    "usage": "Use for scene CG/background cards matching a retro cyberpunk neon mood, while preserving true pixel-art constraints.",
+    "compatibility": "Can be combined with inline character identity anchors (XiaoYou/Kucha) to keep character consistency."
+  }
+}
+

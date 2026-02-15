@@ -1,0 +1,27 @@
+[STYLE LOCK — Retro Cyberpunk Neon Pixel v001]
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients, NO dithering.
+Use nearest-neighbor upscale look (as if painted at low resolution, then scaled up).
+Limited palette (<= 24 colors), simple 2-3 shade cel shading, dark 1px outline for major silhouettes.
+Retro cyberpunk / neon-noir: nighttime city mood, neon lights, wet reflections.
+Neon glow must be represented with hard-edged pixel clusters (NO bloom, NO blur).
+No text, no readable letters or numbers, no watermark, no logo, no signature.
+
+[OUTPUT LOCK]
+1024x1024 (square). Leave safe margins for UI overlays.
+
+[IDENTITY ANCHORS]
+Use inline image #1 as the ONLY identity anchor for XiaoYou (keep face/hair/outfit proportions and colors consistent).
+Do NOT redesign the character.
+
+[SCENE]
+Interior office at night (overtime), oppressive and suffocating mood.
+XiaoYou is sitting at her desk/workstation, shoulders slightly hunched, tired eyes, hoodie and shorts consistent with anchor.
+Environment: cubicle partitions, a monitor with abstract UI blocks (NO text), stacks of documents, harsh ceiling light.
+Outside the window: distant neon city glow (no readable signs).
+Lighting: cold overhead light + cyan monitor light + a faint magenta neon reflection; keep it crisp pixel blocks (no blur).
+Composition: medium shot, XiaoYou centered-left, the desk and monitor dominate the frame to feel heavy.
+
+[NEGATIVE]
+anti-aliasing, blur, bloom, glow blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture,
+text, letters, numbers, watermark, logo, signature, readable monitor text, readable signage, extra characters
+

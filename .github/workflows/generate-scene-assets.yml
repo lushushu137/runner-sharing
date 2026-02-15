@@ -1,0 +1,261 @@
+name: Generate Scene Art Assets (Nano Banana)
+
+on:
+  workflow_dispatch:
+    inputs:
+      sceneSetDir:
+        description: Scene set directory in repo
+        required: true
+        default: game-mvp/public/art/scenes/cyber_run_v001
+      styleLockJson:
+        description: Style lock JSON path in repo
+        required: true
+        default: game-mvp/public/art/style/style_lock_retro_cyberpunk_pixel_v001.json
+      commitMessage:
+        description: Commit message
+        required: true
+        default: "feat(art): generate cyber_run_v001 scene set via Nano Banana"
+  push:
+    branches:
+      - "cursor/**"
+
+jobs:
+  generate-scenes:
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' &&
+        github.actor != 'github-actions[bot]' &&
+        contains(github.event.head_commit.message, '[generate-scenes]'))
+    runs-on: ubuntu-latest
+    environment: Production
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Pillow
+        run: python -m pip install --upgrade pillow
+
+      - name: Resolve API key
+        env:
+          # Support multiple secret names; the first non-empty wins.
+          KEY_A: ${{ secrets.GOOGLE_API_KEY }}
+          KEY_B: ${{ secrets.GEMINI_API_KEY }}
+          KEY_C: ${{ secrets.GOOGLE_GENERATIVE_AI_KEY }}
+          KEY_D: ${{ secrets.GOOGLE_GENAI_API_KEY }}
+          KEY_E: ${{ secrets.NANO_BANANA_API_KEY }}
+          KEY_F: ${{ secrets.NANO_BANANA_KEY }}
+          KEY_G: ${{ secrets.GEMINI_KEY }}
+          KEY_H: ${{ secrets.AI_STUDIO_API_KEY }}
+          # Fallback (less secure): Actions Variables (masked in logs)
+          KEY_V: ${{ vars.GOOGLE_API_KEY }}
+        run: |
+          if [ -n "$KEY_A" ]; then echo "GOOGLE_API_KEY=$KEY_A" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_B" ]; then echo "GOOGLE_API_KEY=$KEY_B" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_C" ]; then echo "GOOGLE_API_KEY=$KEY_C" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_D" ]; then echo "GOOGLE_API_KEY=$KEY_D" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_E" ]; then echo "GOOGLE_API_KEY=$KEY_E" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_F" ]; then echo "GOOGLE_API_KEY=$KEY_F" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_G" ]; then echo "GOOGLE_API_KEY=$KEY_G" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_H" ]; then echo "GOOGLE_API_KEY=$KEY_H" >> "$GITHUB_ENV"; exit 0; fi
+          if [ -n "$KEY_V" ]; then echo "::add-mask::$KEY_V"; echo "GOOGLE_API_KEY=$KEY_V" >> "$GITHUB_ENV"; exit 0; fi
+          echo "No API key found. Configure an Actions Secret (recommended): GOOGLE_API_KEY (or GEMINI_API_KEY / GOOGLE_GENERATIVE_AI_KEY / GOOGLE_GENAI_API_KEY)."
+          echo "Fallback supported: Actions Variable named GOOGLE_API_KEY (not recommended)."
+          exit 1
+
+      - name: Generate scene set (Nano Banana)
+        env:
+          SCENE_SET_DIR: ${{ github.event.inputs.sceneSetDir || 'game-mvp/public/art/scenes/cyber_run_v001' }}
+          STYLE_LOCK_JSON: ${{ github.event.inputs.styleLockJson || 'game-mvp/public/art/style/style_lock_retro_cyberpunk_pixel_v001.json' }}
+        run: |
+          set -euo pipefail
+          mkdir -p "$SCENE_SET_DIR"
+
+          # Resolve style reference images (optional).
+          node -e 'const fs=require("fs");const j=JSON.parse(fs.readFileSync(process.env.STYLE_LOCK_JSON,"utf8"));(j.referenceImages||[]).forEach(u=>console.log(u));' > /tmp/style_refs.txt
+          REF_ARGS=()
+          while IFS= read -r u; do
+            [ -z "$u" ] && continue
+            REF_ARGS+=("--ref" "$u")
+          done < /tmp/style_refs.txt
+
+          XOYOU_ANCHOR="game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg"
+          KUCHA_PRONE="game-mvp/public/art/characters/char002/pose_v005_kucha_prone.jpg"
+
+          gen_one () {
+            local scene_id="$1"
+            local prompt_file="$2"
+            local out_png="$3"
+            shift 3
+            local inline_args=("$@")
+
+            # Keep env vars in sync for meta writer.
+            SCENE_ID="$scene_id"
+            PROMPT_FILE="$prompt_file"
+            OUT_PNG="$out_png"
+
+            local raw_prefix="${SCENE_SET_DIR}/${scene_id}__raw"
+            local raw_path
+            raw_path="$(node game-mvp/scripts/nano-banana/generate-image.mjs \
+              --model nano-banana-pro-preview \
+              --prompt-file "$prompt_file" \
+              --out "$raw_prefix" \
+              --temperature 0.12 \
+              "${inline_args[@]}" \
+              "${REF_ARGS[@]}")"
+
+            # Convert to stable PNG filename for engine consumption.
+            RAW_PATH="$raw_path" OUT_PNG="$out_png" python - <<'PY'
+          from __future__ import annotations
+          import os
+          from pathlib import Path
+          from PIL import Image
+          
+          raw_path = Path(os.environ["RAW_PATH"])
+          out_png = Path(os.environ["OUT_PNG"])
+          out_png.parent.mkdir(parents=True, exist_ok=True)
+          
+          img = Image.open(raw_path)
+          if img.size != (1024, 1024):
+            img = img.resize((1024, 1024), resample=Image.NEAREST)
+          img.save(out_png, format="PNG", optimize=True)
+          print("Wrote", out_png)
+          PY
+            rm -f "$raw_path"
+
+            # Write generation meta (prompt + style lock + output).
+            node - <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          
+          const sceneId = process.env.SCENE_ID;
+          const promptFile = process.env.PROMPT_FILE;
+          const prompt = fs.readFileSync(promptFile, "utf8");
+          const styleLockJson = process.env.STYLE_LOCK_JSON;
+          const styleLock = JSON.parse(fs.readFileSync(styleLockJson, "utf8"));
+          
+          const outPng = process.env.OUT_PNG;
+          const meta = {
+            sceneSetId: "cyber_run_v001",
+            sceneId,
+            version: "v001",
+            model: styleLock.model || "nano-banana-pro-preview",
+            styleLock: path.basename(styleLockJson),
+            promptFile,
+            output: path.basename(outPng),
+            notes: {
+              square: true,
+              noText: true,
+              watchBlank: sceneId.includes("watch"),
+            },
+          };
+          
+          const metaPath = path.join(path.dirname(outPng), `generation_meta_${sceneId}.json`);
+          fs.writeFileSync(metaPath, JSON.stringify(meta, null, 2) + "\n", "utf8");
+          console.log("Wrote", metaPath);
+          NODE
+          }
+
+          export RAW_PATH=""
+          export OUT_PNG=""
+          export SCENE_ID=""
+          export PROMPT_FILE=""
+
+          # Scene 01: Apartment (XiaoYou + Kucha)
+          SCENE_ID="scene01_apartment_sleepy"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene01_apartment_sleepy_nanobanana.txt"
+          RAW_PATH="(set in gen_one)"
+          OUT_PNG="${SCENE_SET_DIR}/scene01_apartment_sleepy.png"
+          RAW_PATH=""
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR" \
+            --inline "$KUCHA_PRONE"
+
+          # Scene 02: Office (XiaoYou)
+          SCENE_ID="scene02_office_oppressive"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene02_office_oppressive_nanobanana.txt"
+          OUT_PNG="${SCENE_SET_DIR}/scene02_office_oppressive.png"
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR"
+
+          # Scene 03: Run FP legs (rain)
+          SCENE_ID="scene03_run_fp_legs_rain"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene03_run_fp_legs_rain_nanobanana.txt"
+          OUT_PNG="${SCENE_SET_DIR}/scene03_run_fp_legs_rain.png"
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR"
+
+          # Scene 04: Run mid (rain)
+          SCENE_ID="scene04_run_mid_rain"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene04_run_mid_rain_nanobanana.txt"
+          OUT_PNG="${SCENE_SET_DIR}/scene04_run_mid_rain.png"
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR"
+
+          # Scene 05: Run wide bridge (snow)
+          SCENE_ID="scene05_run_wide_bridge_snow"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene05_run_wide_bridge_snow_nanobanana.txt"
+          OUT_PNG="${SCENE_SET_DIR}/scene05_run_wide_bridge_snow.png"
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR"
+
+          # Scene 06: Watch FP (blank)
+          SCENE_ID="scene06_watch_fp_blank"
+          PROMPT_FILE="${SCENE_SET_DIR}/prompt_scene06_watch_fp_blank_nanobanana.txt"
+          OUT_PNG="${SCENE_SET_DIR}/scene06_watch_fp_blank.png"
+          gen_one "$SCENE_ID" "$PROMPT_FILE" "$OUT_PNG" \
+            --inline "$XOYOU_ANCHOR"
+
+          # Contact sheet for quick review (3 rows x 2 cols).
+          python - <<'PY'
+          from __future__ import annotations
+          import os
+          from pathlib import Path
+          from PIL import Image
+          
+          base = Path(os.environ["SCENE_SET_DIR"])
+          names = [
+            "scene01_apartment_sleepy.png",
+            "scene02_office_oppressive.png",
+            "scene03_run_fp_legs_rain.png",
+            "scene04_run_mid_rain.png",
+            "scene05_run_wide_bridge_snow.png",
+            "scene06_watch_fp_blank.png",
+          ]
+          imgs = [Image.open(base / n).convert("RGBA") for n in names]
+          w, h = imgs[0].size
+          gap = 16
+          cols, rows = 2, 3
+          canvas = Image.new("RGBA", (cols * w + gap * (cols - 1), rows * h + gap * (rows - 1)), (10, 10, 16, 255))
+          for i, img in enumerate(imgs):
+            x = (i % cols) * (w + gap)
+            y = (i // cols) * (h + gap)
+            canvas.paste(img, (x, y))
+          out = base / "scenesheet_v001.png"
+          canvas.save(out, format="PNG", optimize=True)
+          print("Wrote", out)
+          PY
+
+      - name: Commit and push generated assets
+        env:
+          COMMIT_MESSAGE: ${{ github.event.inputs.commitMessage || 'feat(art): generate cyber_run_v001 scene set via Nano Banana' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git status --porcelain
+          git commit -m "$COMMIT_MESSAGE"
+          git push
+

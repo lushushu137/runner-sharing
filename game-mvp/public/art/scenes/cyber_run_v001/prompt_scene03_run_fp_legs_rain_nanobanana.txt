@@ -1,0 +1,27 @@
+[STYLE LOCK — Retro Cyberpunk Neon Pixel v001]
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients, NO dithering.
+Use nearest-neighbor upscale look (as if painted at low resolution, then scaled up).
+Limited palette (<= 24 colors), simple 2-3 shade cel shading, dark 1px outline for major silhouettes.
+Retro cyberpunk / neon-noir: nighttime city mood, neon lights, wet reflections.
+Neon glow must be represented with hard-edged pixel clusters (NO bloom, NO blur).
+No text, no readable letters or numbers, no watermark, no logo, no signature.
+
+[OUTPUT LOCK]
+1024x1024 (square). Leave safe margins for UI overlays.
+
+[IDENTITY ANCHORS]
+Use inline image #1 as the ONLY identity anchor for XiaoYou's outfit colors and proportions (graphite hoodie + baggy shorts + white sneakers).
+Do NOT redesign.
+
+[SCENE]
+First-person running POV along a riverside path at night, light rain.
+Camera: looking down slightly; the bottom 25% of the frame shows XiaoYou's legs and white sneakers in motion (no full body).
+Environment: riverside railing, wet pavement with neon reflections (magenta/cyan/purple), distant city lights.
+Rain: sparse diagonal 1px rain streaks; puddles as crisp pixel highlights (no blur).
+Motion: NO motion blur. If needed, add only a few crisp 1px speed lines.
+No readable signage; any neon signs must be abstract shapes only.
+
+[NEGATIVE]
+anti-aliasing, blur, motion blur, bloom, glow blur, smooth gradients, dithering, painterly rendering, photorealistic textures,
+text, letters, numbers, watermark, logo, signature, readable signage, readable UI
+
