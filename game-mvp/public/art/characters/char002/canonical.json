@@ -5,8 +5,8 @@
   "style": "pixel-cute",
   "styleLock": "../../style/style_lock_xiaoyou_pixel_v001.json",
   "lockedAt": "2026-02-14",
-  "master": "master_v003_kucha.png",
-  "settei": "settei_v003_kucha.png",
+  "master": "master_v004_kucha_nanobanana.jpg",
+  "settei": "settei_v004_kucha_nanobanana.png",
   "refs": {
     "pinterestShortLinks": [
       "https://pin.it/5Qdh142GG",
@@ -20,9 +20,9 @@
     ]
   },
   "notes": {
-    "description": "silver tabby American shorthair + white (based on user photo), style tuned to provided pixel-cat references",
+    "description": "silver tabby American shorthair + white (based on user photo), generated via Nano Banana in XiaoYou Pixel v001 style",
     "pose": "sitting (slight 3/4)",
-    "status": "provisional",
-    "next": "Regenerate with Nano Banana using XiaoYou style lock (see prompt_v004_kucha_master_nanobanana.txt)."
+    "status": "draft",
+    "generated": "nano-banana"
   }
 }

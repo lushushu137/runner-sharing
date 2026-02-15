@@ -1,0 +1,28 @@
+{
+  "version": "v004",
+  "characterId": "char002",
+  "displayName": "Kucha",
+  "model": "nano-banana-pro-preview",
+  "styleLock": "style_lock_xiaoyou_pixel_v001.json",
+  "referenceImages": [
+    "https://i.pinimg.com/736x/b2/d9/f7/b2d9f7e2965f7b0cdcd7885808d9d74a.jpg",
+    "https://i.pinimg.com/736x/66/57/b0/6657b0a4955fac528c0a1d0c83e62d60.jpg",
+    "https://i.pinimg.com/736x/db/fc/5a/dbfc5a43e9e10a3c2df75430a6027edb.jpg"
+  ],
+  "prompt": "Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition.\nRender as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients.\nChibi/kawaii proportions: large head, big expressive eyes, small body.\nLimited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline.\nPlain pastel background. No text, no watermark, no logo.\n\nTask: Create a NEW character sprite (NOT XiaoYou). Character: Kucha, a chubby American Shorthair cat.\nStyle requirement: Match the EXACT SAME pixel-art style as the approved XiaoYou sprite (same pixel density, outline thickness, and simple 2-3 shade shading). Do NOT invent a new rendering style.\n\nAppearance (must match):\n- Silver tabby coat with clear dark stripes (forehead \\\"M\\\" marking, stripes on back, rings on tail)\n- White muzzle, white chest, big white belly, white paws\n- Round chubby face, small pink nose, short whiskers\n- Cute big cat eyes (slightly almond), olive/greenish iris with a small pixel highlight\n\nPose & composition:\n- Sitting, slightly 3/4 view (subtle turn), tail curled to the right side\n- Very round body (fat, soft), short legs/paws\n- Centered on canvas, clean silhouette\n\nOutput requirements:\n- Generate ONE image, 1024x1024, plain pastel pink background\n- Must look like a low-res sprite (e.g. 64x64~96x96) scaled up with nearest-neighbor\n- No extra props, no text, no watermark\n\n[NEGATIVE]\nanti-aliasing, blur, smooth gradients, dithering, painterly rendering, photorealistic textures, noisy texture, text, watermark, logo, signature, heavy detail, realistic fur strands\n\n",
+  "inputs": {
+    "inlineStyleAnchor": "game-mvp/public/art/characters/char001/master_v008_fullbody_shorts_bangslonger.jpg"
+  },
+  "outputs": {
+    "master": "master_v004_kucha_nanobanana.jpg",
+    "settei": "settei_v004_kucha_nanobanana.png"
+  },
+  "settei": {
+    "closeupCropPx": [
+      401,
+      95,
+      721,
+      415
+    ]
+  }
+}
