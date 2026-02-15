@@ -2,30 +2,13 @@ name: Generate Scene Art Assets (Nano Banana)
 
 on:
   workflow_dispatch:
-    inputs:
-      sceneSetDir:
-        description: Scene set directory in repo
-        required: true
-        default: game-mvp/public/art/scenes/cyber_run_v001
-      styleLockJson:
-        description: Style lock JSON path in repo
-        required: true
-        default: game-mvp/public/art/style/style_lock_retro_cyberpunk_pixel_v001.json
-      commitMessage:
-        description: Commit message
-        required: true
-        default: "feat(art): generate cyber_run_v001 scene set via Nano Banana"
   push:
     branches:
       - "cursor/**"
 
 jobs:
   generate-scenes:
-    if: >
-      github.event_name == 'workflow_dispatch' ||
-      (github.event_name == 'push' &&
-        github.actor != 'github-actions[bot]' &&
-        contains(github.event.head_commit.message, '[generate-scenes]'))
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.actor != 'github-actions[bot]' && contains(github.event.head_commit.message, '[generate-scenes]'))
     runs-on: ubuntu-latest
     environment: Production
     permissions:
@@ -77,8 +60,8 @@ jobs:
 
       - name: Generate scene set (Nano Banana)
         env:
-          SCENE_SET_DIR: ${{ github.event.inputs.sceneSetDir || 'game-mvp/public/art/scenes/cyber_run_v001' }}
-          STYLE_LOCK_JSON: ${{ github.event.inputs.styleLockJson || 'game-mvp/public/art/style/style_lock_retro_cyberpunk_pixel_v001.json' }}
+          SCENE_SET_DIR: game-mvp/public/art/scenes/cyber_run_v001
+          STYLE_LOCK_JSON: game-mvp/public/art/style/style_lock_retro_cyberpunk_pixel_v001.json
         run: |
           set -euo pipefail
           mkdir -p "$SCENE_SET_DIR"
@@ -249,13 +232,11 @@ jobs:
           PY
 
       - name: Commit and push generated assets
-        env:
-          COMMIT_MESSAGE: ${{ github.event.inputs.commitMessage || 'feat(art): generate cyber_run_v001 scene set via Nano Banana' }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
           git status --porcelain
-          git commit -m "$COMMIT_MESSAGE"
+          git commit -m "feat(art): generate cyber_run_v001 scene set via Nano Banana"
           git push
 
