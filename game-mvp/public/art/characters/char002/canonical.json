@@ -6,7 +6,14 @@
   "styleLock": "../../style/style_lock_xiaoyou_pixel_v001.json",
   "lockedAt": "2026-02-14",
   "master": "master_v004_kucha_nanobanana.jpg",
-  "settei": "settei_v004_kucha_nanobanana.png",
+  "settei": "settei_v005_kucha_fullbody_pose_sheet.png",
+  "poses": {
+    "sit": "master_v004_kucha_nanobanana.jpg",
+    "prone": "pose_v005_kucha_prone.jpg",
+    "bellyUp": "pose_v005_kucha_bellyup.jpg",
+    "sideSleep": "pose_v005_kucha_sidesleep.jpg",
+    "meow": "pose_v005_kucha_meow.jpg"
+  },
   "refs": {
     "pinterestShortLinks": [
       "https://pin.it/5Qdh142GG",

@@ -1,0 +1,21 @@
+Use the provided reference images ONLY for style inspiration. Do NOT copy any specific character or composition.
+Render as TRUE 2D pixel art: crisp pixels, NO anti-aliasing, NO blur, NO smooth gradients.
+Chibi/kawaii proportions. Limited palette (<= 20 colors), simple cell shading (2-3 shades), dark 1px outline.
+Plain pastel pink background. No text, no watermark, no logo.
+
+Identity lock:
+Use the provided Kucha master sprite as the ONLY identity anchor.
+Keep the exact same cat: same face, coat colors, stripe pattern (forehead M, body stripes, tail rings), outline thickness, and shading style.
+Do not redesign Kucha.
+
+Task:
+Generate ONE full-body pose sprite of Kucha: side-lying sleeping pose (curled slightly), eyes closed, calm and cozy.
+Tail wrapped near body.
+
+Framing:
+Entire cat must be fully visible. No cropping. Leave some margin around the body.
+
+[NEGATIVE]
+anti-aliasing, blur, smooth gradients, dithering, painterly rendering, photorealistic fur, noisy texture,
+text, watermark, logo, signature, extra props, different cat, redesign, clothing, accessories
+

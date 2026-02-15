@@ -25,15 +25,27 @@
   `game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json`
 - Master（全身基准，v004 / Nano Banana）：  
   `game-mvp/public/art/characters/char002/master_v004_kucha_nanobanana.jpg`
-- Settei（设定图：全身 + 近景，v004）：  
-  `game-mvp/public/art/characters/char002/settei_v004_kucha_nanobanana.png`
+- Settei（全身设定图：含多姿势，不裁切，v005）：  
+  `game-mvp/public/art/characters/char002/settei_v005_kucha_fullbody_pose_sheet.png`
 - Meta（v004：prompt + style lock + refs）：  
   `game-mvp/public/art/characters/char002/generation_meta_v004_kucha_nanobanana.json`
+
+## 姿势资产（v005 / Nano Banana）
+
+- 趴着：`game-mvp/public/art/characters/char002/pose_v005_kucha_prone.jpg`
+- 翻肚皮躺着：`game-mvp/public/art/characters/char002/pose_v005_kucha_bellyup.jpg`
+- 侧躺睡觉：`game-mvp/public/art/characters/char002/pose_v005_kucha_sidesleep.jpg`
+- 喵喵叫：`game-mvp/public/art/characters/char002/pose_v005_kucha_meow.jpg`
 
 ### v004（当前：Nano Banana 出图，画风与小悠一致）
 
 - 目标达成：Kucha 已由 **Nano Banana** 生成，并使用“小悠 Pixel-Cute v001”画风锁定
 - 说明：后续所有 Kucha 相关素材（表情、动作、转身、道具互动等）都以 v004 master 作为身份锚点
+
+### v005（全身设定图更新：完整不裁切 + 多姿势）
+
+- Settei（5 个全身姿势拼版）：  
+  `game-mvp/public/art/characters/char002/settei_v005_kucha_fullbody_pose_sheet.png`
 
 ### 风格参考图（你提供）
 

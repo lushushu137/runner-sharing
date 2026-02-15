@@ -1,0 +1,24 @@
+{
+  "version": "v005",
+  "characterId": "char002",
+  "displayName": "Kucha",
+  "model": "nano-banana-pro-preview",
+  "styleLock": "style_lock_xiaoyou_pixel_v001.json",
+  "identityAnchor": "master_v004_kucha_nanobanana.jpg",
+  "outputs": {
+    "poses": {
+      "prone": "pose_v005_kucha_prone.jpg",
+      "bellyUp": "pose_v005_kucha_bellyup.jpg",
+      "sideSleep": "pose_v005_kucha_sidesleep.jpg",
+      "meow": "pose_v005_kucha_meow.jpg"
+    },
+    "settei": "settei_v005_kucha_fullbody_pose_sheet.png"
+  },
+  "prompts": {
+    "prone": "prompt_v005_kucha_pose_prone_nanobanana.txt",
+    "bellyUp": "prompt_v005_kucha_pose_bellyup_nanobanana.txt",
+    "sideSleep": "prompt_v005_kucha_pose_sidesleep_nanobanana.txt",
+    "meow": "prompt_v005_kucha_pose_meow_nanobanana.txt"
+  },
+  "note": "All poses generated via Nano Banana with XiaoYou Pixel v001 style lock + Kucha v004 identity anchor. Settei is a deterministic collage (no cropping)."
+}
