@@ -1,0 +1,39 @@
+{
+  "version": "v006",
+  "characterId": "char002",
+  "displayName": "Kucha",
+  "purpose": "Normalize sprite pixel density for in-game scale (Kucha = 1/5 XiaoYou height).",
+  "target": {
+    "relativeTo": "char001",
+    "heightRatio": 0.2,
+    "kuchaNativeHeightPx": 32,
+    "canvasNative": [
+      64,
+      64
+    ],
+    "previewScale": 8
+  },
+  "sources": {
+    "sit": "master_v004_kucha_nanobanana.jpg",
+    "prone": "pose_v005_kucha_prone.jpg",
+    "meow": "pose_v005_kucha_meow.jpg",
+    "bellyup": "pose_v005_kucha_bellyup.jpg",
+    "sidesleep": "pose_v005_kucha_sidesleep.jpg"
+  },
+  "outputs": {
+    "nativeSprites": {
+      "sit": "sprite_v006_kucha_sit_native_64x64_h32.png",
+      "prone": "sprite_v006_kucha_prone_native_64x64_h32.png",
+      "meow": "sprite_v006_kucha_meow_native_64x64_h32.png",
+      "bellyup": "sprite_v006_kucha_bellyup_native_64x64_h32.png",
+      "sidesleep": "sprite_v006_kucha_sidesleep_native_64x64_h32.png"
+    },
+    "previewSprites": {
+      "sit": "sprite_v006_kucha_sit_preview_x8.png",
+      "prone": "sprite_v006_kucha_prone_preview_x8.png",
+      "meow": "sprite_v006_kucha_meow_preview_x8.png",
+      "bellyup": "sprite_v006_kucha_bellyup_preview_x8.png",
+      "sidesleep": "sprite_v006_kucha_sidesleep_preview_x8.png"
+    }
+  }
+}

@@ -25,8 +25,8 @@
   `game-mvp/public/art/style/style_lock_xiaoyou_pixel_v001.json`
 - Master（全身基准，v004 / Nano Banana）：  
   `game-mvp/public/art/characters/char002/master_v004_kucha_nanobanana.jpg`
-- Settei（全身设定图：含多姿势，不裁切，v005）：  
-  `game-mvp/public/art/characters/char002/settei_v005_kucha_fullbody_pose_sheet.png`
+- Settei（全量设定合图：全身多姿势 + 1/5 比例像素密度预览，v006）：  
+  `game-mvp/public/art/characters/char002/settei_v006_kucha_all_in_one.png`
 - Meta（v004：prompt + style lock + refs）：  
   `game-mvp/public/art/characters/char002/generation_meta_v004_kucha_nanobanana.json`
 
@@ -46,6 +46,16 @@
 
 - Settei（5 个全身姿势拼版）：  
   `game-mvp/public/art/characters/char002/settei_v005_kucha_fullbody_pose_sheet.png`
+
+### v006（比例锁定：Kucha = 小悠的 1/5）
+
+- 说明：Kucha 需要在同屏中显示为小悠高度的 **1/5**。为了避免“缩小后像素更细”的画风不统一问题，新增了原生小网格精灵（64x64，身高约 32px），供引擎按整数倍 nearest-neighbor 放大使用。
+- 原生精灵（示例）：  
+  `game-mvp/public/art/characters/char002/sprite_v006_kucha_sit_native_64x64_h32.png`
+- 预览精灵（x8 放大）：  
+  `game-mvp/public/art/characters/char002/sprite_v006_kucha_sit_preview_x8.png`
+- 合并设定图（包含全身多姿势 + 小尺寸像素密度预览）：  
+  `game-mvp/public/art/characters/char002/settei_v006_kucha_all_in_one.png`
 
 ### 风格参考图（你提供）
 

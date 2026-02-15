@@ -6,13 +6,41 @@
   "styleLock": "../../style/style_lock_xiaoyou_pixel_v001.json",
   "lockedAt": "2026-02-14",
   "master": "master_v004_kucha_nanobanana.jpg",
-  "settei": "settei_v005_kucha_fullbody_pose_sheet.png",
+  "settei": "settei_v006_kucha_all_in_one.png",
   "poses": {
     "sit": "master_v004_kucha_nanobanana.jpg",
     "prone": "pose_v005_kucha_prone.jpg",
     "bellyUp": "pose_v005_kucha_bellyup.jpg",
     "sideSleep": "pose_v005_kucha_sidesleep.jpg",
     "meow": "pose_v005_kucha_meow.jpg"
+  },
+  "scale": {
+    "relativeToCharacterId": "char001",
+    "heightRatio": 0.2,
+    "notes": "Kucha should be rendered at 1/5 of XiaoYou height using a smaller native pixel grid (do not downscale high-res sheets)."
+  },
+  "sprites": {
+    "native": {
+      "canvas": "64x64",
+      "targetHeightPx": 32,
+      "poses": {
+        "sit": "sprite_v006_kucha_sit_native_64x64_h32.png",
+        "prone": "sprite_v006_kucha_prone_native_64x64_h32.png",
+        "bellyUp": "sprite_v006_kucha_bellyup_native_64x64_h32.png",
+        "sideSleep": "sprite_v006_kucha_sidesleep_native_64x64_h32.png",
+        "meow": "sprite_v006_kucha_meow_native_64x64_h32.png"
+      }
+    },
+    "preview": {
+      "scale": 8,
+      "poses": {
+        "sit": "sprite_v006_kucha_sit_preview_x8.png",
+        "prone": "sprite_v006_kucha_prone_preview_x8.png",
+        "bellyUp": "sprite_v006_kucha_bellyup_preview_x8.png",
+        "sideSleep": "sprite_v006_kucha_sidesleep_preview_x8.png",
+        "meow": "sprite_v006_kucha_meow_preview_x8.png"
+      }
+    }
   },
   "refs": {
     "pinterestShortLinks": [
